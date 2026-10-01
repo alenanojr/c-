@@ -1,460 +1,650 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aeroworks Interview Lab</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aeroworks Interview Lab — Complete Beginner to Interview</title>
 <style>
-:root{--bg:#f6f8fb;--card:#fff;--ink:#14213d;--mut:#5b6b82;--line:#d5dde8;--acc:#0e8f86;--accbg:#e2f4f2;--warn:#c2410c;--warnbg:#fdebdc;--bad:#b42318;--ok:#13795b;--code:#eef2f7;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1824;--card:#172336;--ink:#e6edf7;--mut:#9fb0c7;--line:#2a3b55;--acc:#3dd1c4;--accbg:#12353a;--warn:#fb9a5b;--warnbg:#3a2616;--bad:#ff8a80;--ok:#5fd6a6;--code:#0c1422}}
-:root[data-theme="dark"]{--bg:#0f1824;--card:#172336;--ink:#e6edf7;--mut:#9fb0c7;--line:#2a3b55;--acc:#3dd1c4;--accbg:#12353a;--warn:#fb9a5b;--warnbg:#3a2616;--bad:#ff8a80;--ok:#5fd6a6;--code:#0c1422}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-header{padding:20px 16px 8px;max-width:900px;margin:0 auto}h1{font-size:22px;margin:0 0 4px}header p{margin:0;color:var(--mut)}
-nav{display:flex;gap:6px;overflow-x:auto;padding:10px 16px;max-width:900px;margin:0 auto;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
-nav button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:8px;font:inherit;cursor:pointer}
-nav button[aria-selected=true]{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
-main{max-width:900px;margin:0 auto;padding:6px 16px 40px}section{display:none}section.on{display:block}
-h2{font-size:18px;margin:8px 0 4px}.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:10px 0}
-.say{background:var(--accbg);border-left:4px solid var(--acc);padding:10px 12px;border-radius:6px;margin:10px 0}
-.trap{background:var(--warnbg);border-left:4px solid var(--warn);padding:10px 12px;border-radius:6px;margin:10px 0}
-button.b,select,input[type=text],input[type=number]{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 11px}
-button.b{background:var(--acc);color:#fff;border-color:var(--acc);cursor:pointer;font-weight:600}button.b:disabled{opacity:.4;cursor:not-allowed}button.b.g{background:var(--card);color:var(--ink);border-color:var(--line)}
-button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
-pre,.code{background:var(--code);border-radius:8px;padding:10px;font:12.5px/1.5 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;margin:8px 0;white-space:pre-wrap;word-break:break-word}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:620px){.grid{grid-template-columns:1fr}}
-.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13.5px}th,td{border:1px solid var(--line);padding:5px 8px;text-align:left}th{background:var(--code)}
-.layer{display:block;width:100%;text-align:left;margin:6px 0;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer}.layer[aria-pressed=true]{border-color:var(--acc);background:var(--accbg)}
-.zone{min-height:90px;border:1px dashed var(--line);border-radius:8px;padding:8px}.zone b{font-size:13px}.f{display:inline-block;background:var(--accbg);border:1px solid var(--acc);border-radius:6px;padding:1px 7px;margin:2px;font-size:13px}
-.ok{color:var(--ok);font-weight:600}.bad{color:var(--bad);font-weight:600}.mut{color:var(--mut)}.q label{display:block;border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer}
-.q label.right{border-color:var(--ok)}.q label.wrong{border-color:var(--bad)}
-.expl{background:var(--accbg);border-color:var(--acc)}.expl summary{cursor:pointer;font-weight:700}.expl p{margin:6px 0}</style></head><body>
-<header><h1>Aeroworks Interview Lab</h1><p>I-click, i-type, at panoorin kung ano ang nangyayari. Mas mabilis tumatak kapag ikaw ang gumagalaw.</p></header>
-<nav role="tablist" id="nav"></nav>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--mut:#607089;--line:#d7deea;--acc:#0e8f86;--accbg:#e2f4f2;--warn:#c2410c;--warnbg:#fff0e5;--bad:#b42318;--ok:#147a59;--code:#eef2f7;--shadow:0 4px 18px rgba(20,32,61,.06)}
+[data-theme=dark]{--bg:#0e1724;--card:#162235;--ink:#e8eef8;--mut:#a4b2c8;--line:#2a3a52;--acc:#42d1c4;--accbg:#12383a;--warn:#ff9a62;--warnbg:#39261b;--bad:#ff8b82;--ok:#5fd7a7;--code:#0b1320;--shadow:none}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}header{max-width:1100px;margin:auto;padding:24px 16px 12px}h1{font-size:25px;margin:0 0 5px}h2{font-size:20px;margin:8px 0}h3{font-size:16px;margin:8px 0}p{margin:7px 0}.mut{color:var(--mut)}.ok{color:var(--ok);font-weight:700}.bad{color:var(--bad);font-weight:700}.warn{color:var(--warn);font-weight:700}
+nav{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow:auto;padding:9px 16px}nav button{white-space:nowrap;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:7px 10px;cursor:pointer}nav button.active{background:var(--acc);color:white;border-color:var(--acc)}main{max-width:1100px;margin:auto;padding:10px 16px 60px}section{display:none}section.on{display:block}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0;box-shadow:var(--shadow)}.hero{border-left:5px solid var(--acc);background:var(--accbg);padding:14px;border-radius:9px;margin:10px 0}.say{background:var(--accbg);border-left:4px solid var(--acc);padding:10px 12px;border-radius:7px;margin:10px 0}.trap{background:var(--warnbg);border-left:4px solid var(--warn);padding:10px 12px;border-radius:7px;margin:10px 0}
+pre,code,.code{font:12.5px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}pre,.code{background:var(--code);border-radius:8px;padding:11px;overflow:auto;white-space:pre-wrap;word-break:break-word}code{background:var(--code);padding:1px 4px;border-radius:4px}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0}.b,input,select,textarea{font:inherit}button.b,select,input[type=text],input[type=number],textarea{color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px}button.b{background:var(--acc);border-color:var(--acc);color:white;cursor:pointer;font-weight:650}button.b.secondary{background:var(--card);color:var(--ink);border-color:var(--line)}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid var(--line);padding:6px 8px;text-align:left}th{background:var(--code)}details{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:9px 12px;margin:8px 0}summary{cursor:pointer;font-weight:700}.pill{display:inline-block;background:var(--accbg);border:1px solid var(--acc);border-radius:99px;padding:2px 8px;margin:2px;font-size:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(max-width:650px){.two{grid-template-columns:1fr}}
+.layer{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:9px;padding:11px;margin:7px 0;cursor:pointer}.layer.active{border-color:var(--acc);background:var(--accbg)}.progress{height:9px;background:var(--code);border-radius:9px;overflow:hidden}.progress>i{display:block;height:100%;width:0;background:var(--acc)}.small{font-size:13px}.score{font-size:28px;font-weight:800}.choice{display:block;border:1px solid var(--line);padding:9px;border-radius:8px;margin:7px 0;cursor:pointer}.choice.correct{border-color:var(--ok);background:var(--accbg)}.choice.wrong{border-color:var(--bad)}
+footer{max-width:1100px;margin:auto;padding:20px 16px 50px;color:var(--mut);font-size:13px}.theme{float:right}
+</style>
+</head>
+<body>
+<header>
+  <button class="b theme" id="theme">Dark mode</button>
+  <h1>Aeroworks Interview Lab — Complete</h1>
+  <p class="mut">Beginner → C# → OOP → Data Structures → LINQ → WPF → MVVM → SQL/EF Core → REST → STM32 → Serial → Figma → AI/LLM → Testing → Git → Interview.</p>
+  <div class="hero"><b>Important:</b> Hindi ito para magpanggap na may professional experience ka sa lahat. Goal nito ay maintindihan mo ang concepts, makapag-explain nang simple, at ma-connect ang tools sa isang real system.</div>
+</header>
+<nav id="nav"></nav>
 <main>
 
-<section id="big"><h2>1. Big picture</h2>
-<p class="mut">I-click ang bawat layer. Isipin mo ang app bilang restaurant.</p>
-<div id="layers"></div><div class="card" id="ldesc"></div>
-<div class="say"><b>Say this:</b> "User → WPF View → ViewModel → C# Service → Database / API / Hardware, and the result returns to the UI through data binding."</div></section>
-
-<section id="mvvm"><h2>2. MVVM lab</h2>
-<p class="mut">Ang View ay naka-bind sa ViewModel. I-type ang pangalan, i-click Add. Tapos i-off ang <code>INotifyPropertyChanged</code> at tingnan kung ano ang masisira.</p>
-<div class="grid"><div class="card"><b>View (XAML)</b>
-<div class="row"><input type="text" id="nm" placeholder="NewName (TextBox)" aria-label="New name"><button class="b" id="add">Add</button></div>
-<div>Employees: <b id="cnt">0</b></div><ul id="lst" style="margin:6px 0;padding-left:18px"></ul></div>
-<div class="card"><b>ViewModel (C#)</b><pre id="vmj"></pre><div id="log" class="mut" style="font-size:13px"></div></div></div>
-<label><input type="checkbox" id="notify" checked> INotifyPropertyChanged ON (SetProperty → OnPropertyChanged)</label>
-<div id="mnote" class="say" style="margin-top:10px"></div>
-<pre>public ICommand AddCommand =&gt; new RelayCommand(_ =&gt; Add(), _ =&gt; !string.IsNullOrWhiteSpace(NewName)); // CanExecute</pre>
-<div class="say"><b>Say this:</b> "The View binds to the ViewModel through INotifyPropertyChanged and ICommand, so UI and business logic stay decoupled and the ViewModel can be unit-tested without a window."</div></section>
-
-<section id="sql"><h2>3. SQL JOIN lab</h2>
-<p class="mut">Palitan ang JOIN type at tingnan kung aling rows ang lumalabas.</p>
-<div class="grid"><div class="card tw"><b>Employees</b><table><tr><th>Id</th><th>Name</th><th>Salary</th><th>DepartmentId</th></tr>
-<tr><td>1</td><td>Alberto</td><td>30000</td><td>1</td></tr><tr><td>2</td><td>Maria</td><td>35000</td><td>2</td></tr><tr><td>3</td><td>Jose</td><td>28000</td><td>2</td></tr><tr><td>4</td><td>Ana</td><td>32000</td><td>NULL</td></tr></table></div>
-<div class="card tw"><b>Departments</b><table><tr><th>Id</th><th>DepartmentName</th></tr><tr><td>1</td><td>Firmware</td></tr><tr><td>2</td><td>Software</td></tr><tr><td>3</td><td>HR</td></tr></table></div></div>
-<div class="row"><select id="jt" aria-label="Join type"><option value="i">INNER JOIN</option><option value="le">Employees LEFT JOIN Departments</option><option value="ld">Departments LEFT JOIN Employees</option></select>
-<label>Min salary <input type="number" id="ms" value="0" step="1000" style="width:100px"></label></div>
-<pre id="sq"></pre><div class="card tw" id="sr"></div>
-<div class="say"><b>Say this:</b> "INNER returns only matches. LEFT returns every row from the left table and NULLs where there is no match. I use parameterized queries to prevent SQL injection."</div></section>
-
-<section id="rest"><h2>4. REST + JSON lab</h2>
-<p class="mut">Pumili ng request, i-click Send, at basahin ang response.</p>
-<div class="row"><select id="rq" aria-label="Request"></select><label><input type="checkbox" id="tok" checked> Send auth token</label><button class="b" id="send">Send</button></div>
-<div class="card"><div id="rs" class="mut">Wala pang response.</div></div>
-<div class="say"><b>Say this:</b> "GET reads, POST creates, PUT replaces, PATCH updates part of it, DELETE removes. In C# I deserialize the JSON into a model and bind it to a DataGrid."</div></section>
-
-<section id="ser"><h2>4b. STM32 → C# serial lab</h2>
-<p class="mut">Ang UART ay puwedeng magpadala ng putol-putol na data. I-click ang "Next chunk" at tingnan kung bakit kailangan ng buffer at terminator.</p>
-<div class="row"><button class="b" id="nx">Next chunk</button><button class="b g" id="rst">Reset</button><label><input type="checkbox" id="buf" checked> Buffer until "\n"</label><button class="b g" id="tx">Send "READ_TEMP\n" to STM32</button></div>
-<div class="grid"><div class="card"><b>COM3 raw chunks</b><div class="code" id="raw">—</div><b>Buffer</b><div class="code" id="bf">—</div></div>
-<div class="card"><b>C# result</b><div id="res" style="font-size:26px;font-weight:700">—</div><div id="pl" class="mut"></div></div></div>
-<div class="trap"><b>Common bug:</b> ang <code>DataReceived</code> ay tumatakbo sa background thread. Gamitin ang <code>Dispatcher.Invoke</code> bago i-update ang UI-bound property, at <code>InvariantCulture</code> sa <code>double.TryParse</code>.</div></section>
-
-<section id="git"><h2>5. Git flow lab</h2>
-<p class="mut">Pindutin ang mga button nang sunod-sunod: edit → add → commit → push.</p>
-<div class="row"><button class="b" data-g="edit">Edit a file</button><button class="b" data-g="add">git add .</button><button class="b" data-g="commit">git commit</button><button class="b" data-g="push">git push</button><button class="b g" data-g="reset">Reset</button></div>
-<div class="grid"><div class="zone" id="z0"></div><div class="zone" id="z1"></div><div class="zone" id="z2"></div><div class="zone" id="z3"></div></div>
-<div id="gmsg" class="say" style="margin-top:10px"></div></section>
-
-<section id="jd"><h2>JD checklist: lahat ng nasa job description</h2>
-<p class="mut">I-click ang bawat item. May paliwanag, maliit na example, at sagot na pwede mong sabihin.</p><div id="jdl"></div></section>
-
-<section id="oop"><h2>C# + OOP lab</h2>
-<p class="mut">Polymorphism: palitan ang notifier nang hindi ginagalaw ang AlertService.</p>
-<div class="row"><select id="nt" aria-label="Notifier"><option>EmailNotification</option><option>SmsNotification</option><option>MockNotification</option></select><label>Temp <input type="number" id="tp" value="85" style="width:80px"></label><button class="b" id="orun">Run</button></div>
-<pre id="ocode"></pre><div class="card" id="oout">Pindutin ang Run.</div>
-<div class="row"><span class="f">Encapsulation: private _port, public Open()</span><span class="f">Inheritance: Sensor → TemperatureSensor</span><span class="f">Polymorphism: INotification</span><span class="f">Abstraction: ISerialService</span></div></section>
-
-<section id="emb"><h2>Embedded lab: STM32, GPIO, UART, I2C, SPI</h2>
-<p class="mut">Basahin ang scenario, pumili ng tamang peripheral.</p>
-<div class="card"><b id="esc"></b><div class="row" id="eb"></div><div id="eex"></div></div><div class="mut" id="esc2"></div></section>
-
-<section id="ai"><h2>AI / LLM integration lab</h2>
-<p class="mut">Sundan ang pipeline. Subukan ang mga switch at tingnan kung ano ang nasisira.</p>
-<div class="row"><label><input type="checkbox" id="rag"> RAG (kunin muna ang company docs)</label><label><input type="checkbox" id="bad"> Sira ang JSON ng model</label><label><input type="checkbox" id="val" checked> Validation + error handling</label><button class="b" id="arun">Run pipeline</button></div>
-<div class="card" id="aout">Tanong: "Bakit tumaas ang temperature ng Device A kagabi?"</div>
-<div class="trap">API key sa secret store, hindi sa Git. Huwag magpadala ng sensitibong data sa external API nang walang pahintulot. Huwag i-execute ang SQL o command na gawa ng LLM nang walang review.</div></section>
-
-<section id="csharp"><h2>C# Fundamentals Lab</h2>
-<p class="mut">Ito ang coding foundation bago WPF. I-click ang topic at basahin ang maliit na example. Ang goal ay makabasa at makasulat ka ng basic C# nang hindi naliligaw.</p>
+<section id="start">
+<h2>0. Start Here — paano mo aaralin</h2>
 <div class="grid">
-<div class="card"><b>Core syntax</b><pre>int age = 25;
-string name = "Alberto";
-bool active = true;
+<div class="card"><h3>Learning order</h3><ol><li>C# fundamentals</li><li>OOP</li><li>Collections / data structures</li><li>LINQ</li><li>Async / error handling</li><li>WPF + XAML</li><li>MVVM + binding + commands</li><li>EF Core + SQL</li><li>REST / JSON</li><li>STM32 + C/C++ + UART</li><li>Figma → UI</li><li>AI / LLM</li><li>Testing / debugging / performance</li><li>Git + teamwork</li></ol></div>
+<div class="card"><h3>One system to remember</h3><pre>User
+ ↓
+WPF/XAML View
+ ↓ binding
+ViewModel (MVVM)
+ ↓
+Service (C# business logic)
+ ↓
+Repository / EF Core
+ ↓
+SQL Database
 
-if (active) {
-    Console.WriteLine(name);
+Other services:
+ViewModel → REST API / LLM
+ViewModel → Serial Service → USB/UART → STM32 → Sensor</pre></div>
+</div>
+<div class="say"><b>Interview line:</b> “I think of the application as layers. The WPF View handles presentation, the ViewModel handles UI state and commands, services handle business logic, and a data layer handles SQL or external systems.”</div>
+</section>
+
+<section id="csharp">
+<h2>1. C# Beginner Fundamentals</h2>
+<p class="mut">Ito ang pinakaimportanteng section kung beginner ka. Huwag agad tumalon sa MVVM.</p>
+<div class="grid">
+<div class="card"><h3>1. Variables + data types</h3><pre>int age = 25;
+string name = "Alberto";
+double temperature = 28.5;
+decimal salary = 30000m;
+bool isConnected = true;
+DateTime now = DateTime.Now;</pre><p><b>Simple idea:</b> variable = lalagyan ng value.</p></div>
+<div class="card"><h3>2. if / else</h3><pre>if (temperature > 80)
+{
+    Console.WriteLine("HIGH");
+}
+else
+{
+    Console.WriteLine("NORMAL");
+}</pre><p>Ginagamit kapag may decision.</p></div>
+<div class="card"><h3>3. loops</h3><pre>for (int i = 0; i &lt; 5; i++)
+{
+    Console.WriteLine(i);
 }
 
-for (int i = 0; i &lt; 3; i++) {
-    Console.WriteLine(i);
-}</pre></div>
-<div class="card"><b>Collections + LINQ</b><pre>var employees = new List&lt;Employee&gt;();
+foreach (var employee in employees)
+{
+    Console.WriteLine(employee.Name);
+}</pre><p><code>for</code> kapag controlled count; <code>foreach</code> kapag umiikot sa collection.</p></div>
+<div class="card"><h3>4. methods</h3><pre>decimal Add(decimal a, decimal b)
+{
+    return a + b;
+}
 
-var developers = employees
-    .Where(e =&gt; e.Position == "Developer")
-    .OrderBy(e =&gt; e.Name)
-    .ToList();</pre></div>
+var total = Add(100, 50);</pre><p>Method = reusable action/function.</p></div>
+<div class="card"><h3>5. arrays</h3><pre>int[] scores = { 90, 85, 92 };
+Console.WriteLine(scores[0]);</pre><p>Fixed-size collection. Index starts at 0.</p></div>
+<div class="card"><h3>6. List&lt;T&gt;</h3><pre>var names = new List&lt;string&gt;();
+names.Add("Alberto");
+names.Add("Maria");
+names.Remove("Maria");</pre><p>Dynamic list. Ito ang collection na madalas mong gagamitin.</p></div>
+<div class="card"><h3>7. Dictionary&lt;TKey,TValue&gt;</h3><pre>var departments = new Dictionary&lt;int,string&gt;
+{
+    [1] = "Firmware",
+    [2] = "Software"
+};
+
+Console.WriteLine(departments[2]);</pre><p>Key → value lookup. Halimbawa ID → department.</p></div>
+<div class="card"><h3>8. null + nullable</h3><pre>string? nickname = null;
+int? departmentId = null;
+
+if (nickname is null)
+    Console.WriteLine("No nickname");</pre><p><code>?</code> means puwedeng null.</p></div>
+<div class="card"><h3>9. try / catch</h3><pre>try
+{
+    int number = int.Parse("abc");
+}
+catch (FormatException ex)
+{
+    Console.WriteLine(ex.Message);
+}</pre><p>Handle expected runtime errors instead of crashing blindly.</p></div>
 </div>
-<div class="card"><b>Class + property + method</b><pre>public class Employee
+<div class="card"><h3>Mini playground</h3><div class="row"><input id="cname" value="Alberto" type="text"><input id="ctemp" value="85" type="number"><button class="b" id="crun">Run</button></div><pre id="cout">Click Run.</pre></div>
+<details open><summary>Must know before moving on</summary><ul><li>Variable = value storage</li><li>Method = reusable action</li><li>Class = blueprint</li><li>Object = actual instance of a class</li><li>List = ordered dynamic collection</li><li>Dictionary = key/value lookup</li><li>if = decision; loop = repetition</li><li>try/catch = error handling</li></ul></details>
+</section>
+
+<section id="oop">
+<h2>2. C# OOP — from zero</h2>
+<div class="hero"><b>Shortcut:</b> Class = blueprint. Object = actual thing. Property = data. Method = action. Constructor = setup kapag gumagawa ng object.</div>
+<div class="card"><h3>Class → Object → Property → Method → Constructor</h3><pre>public class Employee
 {
     public int Id { get; set; }
     public string Name { get; set; }
+    public decimal Salary { get; set; }
 
-    public string GetDisplayName()
-        =&gt; $"{Id} - {Name}";
-}</pre></div>
+    public Employee(int id, string name, decimal salary)
+    {
+        Id = id;
+        Name = name;
+        Salary = salary;
+    }
+
+    public decimal GetAnnualSalary()
+    {
+        return Salary * 12;
+    }
+}
+
+Employee employee = new Employee(1, "Alberto", 30000m);
+Console.WriteLine(employee.Name);
+Console.WriteLine(employee.GetAnnualSalary());</pre></div>
 <div class="grid">
-<div class="card"><b>Interface</b><pre>public interface INotification
+<details open><summary>Encapsulation</summary><p>Control kung paano naa-access o nababago ang internal data.</p><pre>private string _status;
+public string Status => _status;
+
+public void SetStatus(string value)
+{
+    if (!string.IsNullOrWhiteSpace(value))
+        _status = value;
+}</pre><p><b>Idea:</b> hindi lahat dapat public.</p></details>
+<details open><summary>Inheritance</summary><pre>public class Sensor { }
+public class TemperatureSensor : Sensor { }</pre><p>Ang child class ay nagmamana ng behavior/data mula sa parent.</p></details>
+<details open><summary>Polymorphism</summary><pre>public interface INotifier
 {
     void Send(string message);
-}</pre><p class="mut">Contract lang ito. Email, SMS, at Mock puwedeng magkaroon ng sariling implementation.</p></div>
-<div class="card"><b>Exception handling</b><pre>try
-{
-    SaveEmployee();
 }
-catch (Exception ex)
+
+class EmailNotifier : INotifier
 {
-    logger.LogError(ex, "Save failed");
-}</pre><p class="mut">Sa real app: huwag itago ang error; mag-log, mag-handle, at magbigay ng useful feedback.</p></div>
+    public void Send(string message) { }
+}
+
+class SmsNotifier : INotifier
+{
+    public void Send(string message) { }
+}</pre><p>Same interface, different implementation.</p></details>
+<details open><summary>Abstraction</summary><p>Ipakita ang kailangan gamitin, itago ang internal complexity.</p><pre>public interface ISerialService
+{
+    Task SendAsync(string message);
+    event Action&lt;string&gt;? MessageReceived;
+}</pre></details>
+<details open><summary>Interface</summary><p>Contract. Kapag sinabi mong <code>INotifier</code>, anumang class na implements nito ay dapat may <code>Send()</code>.</p></details>
+<details open><summary>Composition</summary><p>“Has-a” relationship. Halimbawa: EmployeeService <b>has an</b> IEmployeeRepository.</p><pre>public class EmployeeService
+{
+    private readonly IEmployeeRepository _repo;
+    public EmployeeService(IEmployeeRepository repo)
+    {
+        _repo = repo;
+    }
+}</pre></details>
 </div>
-<div class="say"><b>Interview:</b> "I'm comfortable with the core C# concepts behind OOP, collections, LINQ, exceptions, interfaces, and asynchronous programming. I'm applying those concepts to WPF and MVVM."</div>
+<div class="card"><h3>Practical OOP simulator</h3><div class="row"><select id="notifier"><option>EmailNotifier</option><option>SmsNotifier</option><option>MockNotifier</option></select><input id="otemp" type="number" value="85"><button class="b" id="orun">Run</button></div><pre id="ocode"></pre><div id="oresult" class="say">—</div></div>
+<div class="say"><b>Interview answer:</b> “The four common OOP ideas I focus on are encapsulation, inheritance, polymorphism, and abstraction. In a maintainable application, I also use interfaces and composition so services depend on contracts instead of concrete implementations.”</div>
 </section>
 
-<section id="wpf"><h2>WPF + XAML Lab</h2>
-<p class="mut">WPF = desktop framework. XAML = UI definition. C# = behavior. Ang key skill ay data binding, commands, layouts, at reusable controls.</p>
-<div class="card"><b>Controls cheat sheet</b><div class="tw"><table><tr><th>Control</th><th>Use</th><th>Typical binding</th></tr>
-<tr><td>TextBox</td><td>User input</td><td>Text</td></tr><tr><td>TextBlock</td><td>Display text</td><td>Text</td></tr><tr><td>Button</td><td>Action</td><td>Command</td></tr><tr><td>ComboBox</td><td>Select item</td><td>ItemsSource / SelectedItem</td></tr><tr><td>DataGrid</td><td>Tables/lists</td><td>ItemsSource</td></tr><tr><td>Grid</td><td>Rows/columns</td><td>Layout</td></tr><tr><td>StackPanel</td><td>Simple stacking</td><td>Layout</td></tr><tr><td>Border</td><td>Card/container</td><td>Style</td></tr></table></div></div>
-<div class="grid"><div class="card"><b>Two-way binding</b><pre>&lt;TextBox
-    Text="{Binding Name,
-      Mode=TwoWay,
-      UpdateSourceTrigger=PropertyChanged}" /&gt;</pre><p class="mut">Habang nagta-type ang user, napupunta ang value sa ViewModel.</p></div>
-<div class="card"><b>DataGrid</b><pre>&lt;DataGrid
-    ItemsSource="{Binding Employees}"
-    AutoGenerateColumns="True" /&gt;</pre><p class="mut">Karaniwang ObservableCollection ang source para automatic ang add/remove notification.</p></div></div>
-<div class="card"><b>Code-behind vs MVVM</b><pre>// Avoid putting business rules here:
-private void Save_Click(object sender, RoutedEventArgs e)
+<section id="ds">
+<h2>3. C# Data Structures / Collections</h2>
+<p class="mut">Hindi mo kailangan agad ng advanced algorithms. Para sa role na ito, practical collections muna.</p>
+<div class="tablewrap"><table><tr><th>Structure</th><th>Use</th><th>Example</th><th>Remember</th></tr>
+<tr><td>Array</td><td>Fixed-size ordered data</td><td>int[] values</td><td>Index-based</td></tr>
+<tr><td>List&lt;T&gt;</td><td>Dynamic ordered data</td><td>List&lt;Employee&gt;</td><td>Most practical</td></tr>
+<tr><td>Dictionary&lt;K,V&gt;</td><td>Fast key/value lookup</td><td>ID → Employee</td><td>Unique keys</td></tr>
+<tr><td>HashSet&lt;T&gt;</td><td>Unique values</td><td>Unique device IDs</td><td>No duplicates</td></tr>
+<tr><td>Queue&lt;T&gt;</td><td>FIFO</td><td>Messages waiting to process</td><td>First in, first out</td></tr>
+<tr><td>Stack&lt;T&gt;</td><td>LIFO</td><td>Undo history</td><td>Last in, first out</td></tr></table></div>
+<div class="card"><h3>Interactive collection</h3><div class="row"><select id="dstype"><option>List&lt;Employee&gt;</option><option>Dictionary&lt;int,Employee&gt;</option><option>HashSet&lt;string&gt;</option><option>Queue&lt;string&gt;</option><option>Stack&lt;string&gt;</option></select><input id="dsvalue" value="Alberto"><button class="b" id="dsadd">Add</button><button class="b secondary" id="dsremove">Remove</button><button class="b secondary" id="dsreset">Reset</button></div><div class="code" id="dsstate">—</div><div class="mut" id="dswhy"></div></div>
+<div class="card"><h3>Employee example — this is the one to memorize</h3><pre>var employees = new List&lt;Employee&gt;();
+employees.Add(new Employee(1, "Alberto", 30000));
+employees.Add(new Employee(2, "Maria", 35000));
+employees.Add(new Employee(3, "Jose", 28000));
+
+// Search by name
+var employee = employees.FirstOrDefault(e =&gt; e.Name == "Maria");</pre></div>
+<div class="say"><b>Interview line:</b> “For normal application data I would start with List&lt;T&gt;. If I need key-based lookup, I would use Dictionary. For uniqueness, HashSet. Queue is useful for first-in-first-out processing such as pending messages.”</div>
+</section>
+
+<section id="linq">
+<h2>4. LINQ — search/filter/sort C# collections</h2>
+<p class="mut">LINQ = query syntax for collections. Very useful sa ViewModel, Service, and EF Core.</p>
+<div class="card"><pre>var softwareEmployees = employees
+    .Where(e =&gt; e.DepartmentId == 2)
+    .OrderByDescending(e =&gt; e.Salary)
+    .Select(e =&gt; e.Name)
+    .ToList();</pre></div>
+<div class="grid"><div class="card"><h3>Most useful operators</h3><ul><li><code>Where</code> — filter</li><li><code>Select</code> — transform</li><li><code>OrderBy</code> / <code>OrderByDescending</code> — sort</li><li><code>FirstOrDefault</code> — first match or null</li><li><code>Any</code> — may match ba?</li><li><code>Count</code> — count</li><li><code>GroupBy</code> — group data</li><li><code>ToList</code> — materialize</li></ul></div><div class="card"><h3>Live filter</h3><input id="filter" type="text" placeholder="Name contains..."><select id="sort"><option value="salaryDesc">Salary ↓</option><option value="salaryAsc">Salary ↑</option><option value="name">Name A-Z</option></select><div id="linqout" class="tablewrap"></div></div></div>
+<div class="say"><b>Remember:</b> LINQ is not a database. With an in-memory <code>List</code>, LINQ runs in C#. With EF Core, many LINQ expressions are translated into SQL by the provider.</div>
+</section>
+
+<section id="async">
+<h2>5. Async / await, Task, threads, errors</h2>
+<div class="grid">
+<div class="card"><h3>Why?</h3><p>WPF has a UI thread. Kapag doon mo ginawa ang slow API/database/file operation, puwedeng mag-freeze ang window.</p><pre>private async Task LoadAsync()
 {
-    // lots of business logic...
-}
-
-// Prefer:
-&lt;Button Content="Save"
-        Command="{Binding SaveCommand}" /&gt;</pre><p class="mut">Event handler is not forbidden, pero sa MVVM-heavy app, commands keep UI actions in the ViewModel.</p></div>
-<div class="say"><b>Interview:</b> "XAML describes the view, while bindings and commands connect it to the ViewModel. That keeps UI code separate from business logic."</div>
+    var data = await service.GetEmployeesAsync();
+    Employees = new ObservableCollection&lt;Employee&gt;(data);
+}</pre></div>
+<div class="card"><h3>Basic terms</h3><ul><li><b>Task</b> = asynchronous operation</li><li><b>async</b> = method can await</li><li><b>await</b> = wait without blocking the thread in the normal async flow</li><li><b>Dispatcher</b> = return to WPF UI thread when needed</li></ul></div>
+</div>
+<div class="card"><h3>Serial → background event → UI</h3><pre>SerialPort.DataReceived
+       ↓
+parse / validate in service
+       ↓
+ViewModel property update
+       ↓
+Dispatcher / synchronization
+       ↓
+WPF DataGrid / TextBlock</pre></div>
+<details><summary>Common mistakes</summary><ul><li>Blocking UI with <code>.Result</code> or <code>.Wait()</code> in UI code</li><li>Updating WPF controls directly from a background serial event</li><li>Ignoring exceptions in async methods</li><li>Starting unlimited tasks without cancellation/backpressure</li></ul></details>
 </section>
 
-<section id="ef"><h2>Entity Framework Core Lab</h2>
-<p class="mut">EF Core ang tulay ng C# objects papunta sa relational database. Isipin: C# class → entity → DbContext → SQL → database.</p>
-<div class="grid"><div class="card"><b>Model</b><pre>public class Employee
+<section id="wpf">
+<h2>6. WPF + XAML fundamentals</h2>
+<div class="hero"><b>C#</b> = language. <b>.NET</b> = platform/runtime/libraries. <b>WPF</b> = Windows desktop UI framework. <b>XAML</b> = markup used to describe the UI.</div>
+<div class="grid">
+<div class="card"><h3>Controls you should recognize</h3><p><span class="pill">Window</span><span class="pill">Grid</span><span class="pill">StackPanel</span><span class="pill">DockPanel</span><span class="pill">Border</span><span class="pill">TextBox</span><span class="pill">TextBlock</span><span class="pill">Button</span><span class="pill">ComboBox</span><span class="pill">CheckBox</span><span class="pill">RadioButton</span><span class="pill">DataGrid</span><span class="pill">ListView</span><span class="pill">Image</span></p></div>
+<div class="card"><h3>Layouts</h3><ul><li><b>Grid</b> — rows/columns</li><li><b>StackPanel</b> — stack horizontally/vertically</li><li><b>DockPanel</b> — dock edges</li><li><b>WrapPanel</b> — wrap items</li></ul></div>
+</div>
+<div class="card"><h3>Simple XAML</h3><pre>&lt;Grid Margin="20"&gt;
+  &lt;Grid.RowDefinitions&gt;
+    &lt;RowDefinition Height="Auto"/&gt;
+    &lt;RowDefinition Height="*"/&gt;
+  &lt;/Grid.RowDefinitions&gt;
+
+  &lt;TextBlock Text="Employees" FontSize="22"/&gt;
+  &lt;DataGrid Grid.Row="1"
+            ItemsSource="{Binding Employees}"
+            AutoGenerateColumns="True"/&gt;
+&lt;/Grid&gt;</pre></div>
+<div class="card"><h3>Binding modes</h3><ul><li><b>OneWay:</b> source → UI</li><li><b>TwoWay:</b> source ↔ UI; common for TextBox input</li><li><b>OneTime:</b> read once</li><li><b>UpdateSourceTrigger:</b> kailan ibabalik ang TextBox value sa source</li></ul></div>
+<div class="say"><b>Interview line:</b> “XAML describes the WPF visual tree. I prefer binding controls to ViewModel properties and commands rather than putting application logic in code-behind.”</div>
+</section>
+
+<section id="mvvm">
+<h2>7. MVVM — actual beginner project structure</h2>
+<div class="card"><pre>AeroworksApp/
+├── Models/
+│   └── Employee.cs
+├── Views/
+│   ├── MainWindow.xaml
+│   └── EmployeeView.xaml
+├── ViewModels/
+│   └── MainViewModel.cs
+├── Services/
+│   └── EmployeeService.cs
+├── Repositories/
+│   └── EmployeeRepository.cs
+├── Data/
+│   └── AppDbContext.cs
+├── Commands/
+│   └── RelayCommand.cs
+└── App.xaml</pre></div>
+<div class="grid">
+<div class="card"><h3>Model</h3><pre>public class Employee
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public int DepartmentId { get; set; }
+    public string Name { get; set; } = "";
 }</pre></div>
-<div class="card"><b>DbContext</b><pre>public class AppDbContext : DbContext
+<div class="card"><h3>ViewModel</h3><pre>public class MainViewModel : ViewModelBase
 {
-    public DbSet&lt;Employee&gt; Employees { get; set; }
-}</pre></div></div>
-<div class="card"><b>CRUD + LINQ</b><pre>// Read
-var list = await db.Employees
+    public ObservableCollection&lt;Employee&gt; Employees { get; }
+    public ICommand AddCommand { get; }
+
+    public MainViewModel(EmployeeService service)
+    {
+        Employees = new();
+        AddCommand = new RelayCommand(_ =&gt; Add());
+    }
+}</pre></div>
+<div class="card"><h3>INotifyPropertyChanged</h3><pre>public class ViewModelBase : INotifyPropertyChanged
+{
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    protected void OnPropertyChanged(string name)
+        =&gt; PropertyChanged?.Invoke(this,
+             new PropertyChangedEventArgs(name));
+}</pre></div>
+<div class="card"><h3>ObservableCollection</h3><p>Kapag nag-add/remove ka, may collection-change notification. Useful para mag-update ang DataGrid/ListBox.</p><pre>public ObservableCollection&lt;Employee&gt; Employees { get; }
+Employees.Add(employee);</pre></div>
+</div>
+<div class="card"><h3>Interactive binding demo</h3><div class="two"><div><input id="mvname" type="text" placeholder="Employee name"><button class="b" id="mvadd">Add</button><ul id="mvlist"></ul></div><pre id="mvlog">PropertyChanged events appear here.</pre></div><label><input id="mvnotify" type="checkbox" checked> INotifyPropertyChanged ON</label></div>
+<div class="say"><b>Golden flow:</b> <code>View → ViewModel → Service → Repository → DB</code>. The ViewModel should not contain raw SQL.</div>
+</section>
+
+<section id="ef">
+<h2>8. SQL + EF Core + database-driven apps</h2>
+<div class="grid">
+<div class="card"><h3>SQL fundamentals</h3><pre>SELECT e.Name, d.DepartmentName
+FROM Employees e
+INNER JOIN Departments d
+  ON e.DepartmentId = d.Id
+WHERE e.Salary &gt;= 30000
+ORDER BY e.Salary DESC;</pre><p>Know: SELECT, INSERT, UPDATE, DELETE, JOIN, GROUP BY, ORDER BY, WHERE, primary key, foreign key, index, transaction.</p></div>
+<div class="card"><h3>EF Core mental model</h3><pre>C# Entity → DbSet → DbContext
+       ↓
+     LINQ
+       ↓
+Generated SQL
+       ↓
+Database</pre><p>EF Core is an ORM. <code>DbContext</code> manages database access and change tracking.</p></div>
+</div>
+<div class="card"><h3>DbContext + query</h3><pre>public class AppDbContext : DbContext
+{
+    public DbSet&lt;Employee&gt; Employees =&gt; Set&lt;Employee&gt;();
+}
+
+var employees = await db.Employees
     .Where(e =&gt; e.DepartmentId == 2)
     .AsNoTracking()
-    .ToListAsync();
+    .ToListAsync();</pre></div>
+<div class="card"><h3>CRUD mental model</h3><pre>// Create
+_db.Employees.Add(employee);
+await _db.SaveChangesAsync();
 
-// Add
-await db.Employees.AddAsync(employee);
-await db.SaveChangesAsync();
+// Read
+var employee = await _db.Employees.FindAsync(id);
 
 // Update
-employee.Name = "Updated";
-await db.SaveChangesAsync();
+employee.Salary = 35000;
+await _db.SaveChangesAsync();
 
 // Delete
-db.Employees.Remove(employee);
-await db.SaveChangesAsync();</pre></div>
-<div class="card"><b>Typical architecture</b><pre>WPF View
+_db.Employees.Remove(employee);
+await _db.SaveChangesAsync();</pre></div>
+<div class="card"><h3>JOIN simulator</h3><div class="tablewrap"><table><tr><th>ID</th><th>Name</th><th>Salary</th><th>DeptId</th></tr><tr><td>1</td><td>Alberto</td><td>30000</td><td>1</td></tr><tr><td>2</td><td>Maria</td><td>35000</td><td>2</td></tr><tr><td>3</td><td>Jose</td><td>28000</td><td>2</td></tr><tr><td>4</td><td>Ana</td><td>32000</td><td>NULL</td></tr></table></div><div class="row"><select id="join"><option>INNER JOIN</option><option>Employees LEFT JOIN Departments</option><option>Departments LEFT JOIN Employees</option></select><input id="minsalary" type="number" value="0"><button class="b" id="joinrun">Run</button></div><pre id="joincode"></pre><div id="joinout"></div></div>
+<div class="trap"><b>Security:</b> use parameterized queries / EF Core parameters. Huwag mag-concatenate ng raw user input sa SQL.</div>
+</section>
+
+<section id="rest">
+<h2>9. REST API + JSON + HttpClient</h2>
+<div class="grid"><div class="card"><h3>HTTP methods</h3><ul><li>GET — read</li><li>POST — create</li><li>PUT — replace/update whole resource</li><li>PATCH — partial update</li><li>DELETE — delete</li></ul></div><div class="card"><h3>Status codes</h3><ul><li>200 OK</li><li>201 Created</li><li>204 No Content</li><li>400 Bad Request</li><li>401 Unauthorized</li><li>403 Forbidden</li><li>404 Not Found</li><li>500 Server Error</li></ul></div></div>
+<div class="card"><h3>C# example</h3><pre>using var response = await httpClient.GetAsync("/api/employees");
+response.EnsureSuccessStatusCode();
+
+var json = await response.Content.ReadAsStringAsync();
+var employees = JsonSerializer.Deserialize&lt;List&lt;EmployeeDto&gt;&gt;(json);</pre></div>
+<div class="card"><h3>Live API simulation</h3><div class="row"><select id="api"><option>GET /api/employees</option><option>GET /api/employees/99</option><option>POST /api/employees</option><option>PATCH /api/employees/1</option><option>DELETE /api/employees/1</option></select><label><input id="token" type="checkbox" checked> auth token</label><button class="b" id="apirun">Send</button></div><div id="apiout" class="code">No response.</div></div>
+<div class="say"><b>Connection:</b> WPF ViewModel → Service → HttpClient → API → JSON → C# DTO → ViewModel → UI.</div>
+</section>
+
+<section id="embedded">
+<h2>10. C / C++ + STM32 fundamentals</h2>
+<div class="grid"><div class="card"><h3>C basics</h3><pre>int count = 10;
+float temperature = 28.5f;
+char buffer[32];
+
+void setLed(int state)
+{
+    // hardware action
+}</pre><p>Know variables, functions, arrays, pointers, structs, headers, <code>#include</code>, <code>#define</code>, memory basics.</p></div><div class="card"><h3>C++ basics</h3><pre>class Sensor
+{
+public:
+    float Read();
+};
+
+std::vector&lt;int&gt; values;</pre><p>Know class/object, constructor, reference, pointer, vector.</p></div></div>
+<div class="grid"><details open><summary>GPIO</summary><p>Digital input/output. Example: LED on/off, button state.</p></details><details open><summary>ADC</summary><p>Analog voltage → digital number. Useful for analog sensors.</p></details><details open><summary>UART</summary><p>TX/RX serial communication. Baud rate must match.</p></details><details open><summary>I2C</summary><p>SDA + SCL, shared bus, device addresses.</p></details><details open><summary>SPI</summary><p>MOSI/MISO/SCK/CS. Fast synchronous communication.</p></details><details open><summary>Interrupt</summary><p>Hardware event triggers handler instead of constant polling.</p></details><details open><summary>Timer / PWM</summary><p>Timer creates precise timing. PWM controls duty cycle, e.g. motor/LED brightness.</p></details><details open><summary>DMA</summary><p>Moves data between peripheral and memory with less CPU involvement.</p></details></div>
+<div class="card"><h3>STM32 software stack</h3><pre>STM32 hardware
+   ↓
+Peripheral registers / HAL
+   ↓
+STM32CubeMX configuration
+   ↓
+STM32CubeIDE project
+   ↓
+Firmware logic
+   ↓
+UART/USB/I2C/SPI
+   ↓
+PC application</pre><p><b>HAL</b> = ST's hardware abstraction layer. CubeMX helps configure peripherals and generate setup code.</p></div>
+<div class="say"><b>Honest beginner answer:</b> “I don't want to overstate my STM32 experience. My stronger background is software and web development, but I understand the fundamentals of GPIO, UART, I2C, SPI and the software-to-hardware flow, and I'm comfortable reading and learning HAL-based code.”</div>
+</section>
+
+<section id="serial">
+<h2>11. STM32 → C# UART/USB Serial Protocol Lab</h2>
+<div class="hero"><b>Key idea:</b> Serial communication is a stream of bytes. Hindi guaranteed na isang buong message ang matatanggap sa isang event.</div>
+<div class="card"><h3>Example protocol</h3><pre>TX: READ_TEMP\n
+RX: TEMP:28.5|7F\n
+
+Possible frame:
+HEADER | PAYLOAD | CHECKSUM | TERMINATOR
+
+Need to think about:
+- buffer
+- terminator / packet length
+- checksum or CRC
+- timeout
+- retry
+- ACK / NACK
+- invalid message handling</pre></div>
+<div class="card"><h3>Interactive chunk parser</h3><div class="row"><button class="b" id="chunk">Next chunk</button><button class="b secondary" id="chunkreset">Reset</button><label><input id="bufferon" type="checkbox" checked> Buffer until \n</label></div><div class="two"><div><b>Raw chunks</b><div id="rawchunks" class="code">—</div><b>Buffer</b><div id="serialbuffer" class="code">—</div></div><div><b>Parsed result</b><div id="serialresult" class="score">—</div><div id="serialnote" class="mut"></div></div></div></div>
+<div class="trap"><b>Threading:</b> SerialPort events may execute away from the WPF UI thread. Parse/validate in the service and marshal UI-bound updates using Dispatcher or an appropriate synchronization mechanism.</div>
+</section>
+
+<section id="figma">
+<h2>12. Figma → functional UI</h2>
+<div class="grid"><div class="card"><h3>Translate design → WPF</h3><table><tr><th>Figma</th><th>WPF</th></tr><tr><td>Frame</td><td>Grid / Border / UserControl</td></tr><tr><td>Auto Layout</td><td>StackPanel / Grid</td></tr><tr><td>Text styles</td><td>Styles / resources</td></tr><tr><td>Color styles</td><td>Brush resources</td></tr><tr><td>Components</td><td>Reusable UserControls / Styles</td></tr><tr><td>Variants / states</td><td>Triggers / VisualState</td></tr></table></div><div class="card"><h3>Design checklist</h3><ul><li>spacing</li><li>typography</li><li>colors</li><li>states: hover/disabled/error/loading</li><li>responsive behavior where relevant</li><li>accessibility/readability</li><li>reusable styles</li></ul></div></div>
+<div class="card"><h3>Small UI mock</h3><div style="border:1px solid var(--line);border-radius:10px;padding:16px;max-width:520px"><h3>Employee Monitor</h3><div class="row"><input placeholder="Search employee"><button class="b">Search</button></div><div class="tablewrap"><table><tr><th>Name</th><th>Department</th><th>Status</th></tr><tr><td>Alberto</td><td>Software</td><td class="ok">Active</td></tr><tr><td>Maria</td><td>Firmware</td><td class="ok">Active</td></tr></table></div></div></div>
+<div class="say"><b>Interview line:</b> “I treat Figma as the visual specification, then convert repeated design tokens into reusable WPF resources instead of hardcoding every control.”</div>
+</section>
+
+<section id="ai">
+<h2>13. AI / ML / LLM integration</h2>
+<div class="grid"><div class="card"><h3>ML vs AI vs LLM</h3><ul><li><b>AI</b> — broad field of intelligent systems.</li><li><b>ML</b> — models learn patterns from data.</li><li><b>LLM</b> — language model specialized in text/code generation and understanding.</li></ul></div><div class="card"><h3>LLM concepts</h3><ul><li>prompt</li><li>tokens</li><li>context window</li><li>temperature</li><li>structured output / JSON</li><li>embeddings</li><li>vector database</li><li>RAG</li><li>tool/function calling</li><li>hallucination</li></ul></div></div>
+<div class="card"><h3>C# LLM architecture</h3><pre>WPF View
    ↓
 ViewModel
    ↓
-EmployeeService
+AIService
    ↓
-EmployeeRepository / EF Core
+HttpClient
    ↓
-SQL Server / PostgreSQL</pre></div>
-<div class="say"><b>Interview:</b> "I would keep EF Core and database operations in the data/service layer rather than putting database code directly in the ViewModel."</div>
+LLM API
+   ↓ JSON
+C# DTO / validation
+   ↓
+ViewModel
+   ↓
+UI</pre></div>
+<div class="card"><h3>RAG flow</h3><pre>User question
+   ↓
+Embedding / search
+   ↓
+Relevant company documents
+   ↓
+Prompt + retrieved context
+   ↓
+LLM
+   ↓
+Validated answer</pre><p>RAG = retrieve relevant information before generation. It can improve grounding when the source documents are appropriate and current.</p></div>
+<div class="card"><h3>Interactive failure modes</h3><div class="row"><label><input id="rag" type="checkbox"> RAG context</label><label><input id="badjson" type="checkbox"> Invalid JSON</label><label><input id="validate" type="checkbox" checked> Validate output</label><button class="b" id="airun">Run</button></div><div id="aiout" class="card">Question: “Why did Device A overheat?”</div></div>
+<div class="trap"><b>Security:</b> API keys belong in secure configuration/secret storage, not Git. Validate LLM output. Do not blindly execute SQL, shell commands, or code generated by a model.</div>
 </section>
 
-<section id="pro"><h2>Async + Testing + Performance + Security</h2>
-<p class="mut">Ito ang mga topic na madalas nagpapakita kung marunong ka sa production software, hindi lang sa syntax.</p>
-<div class="grid">
-<div class="card"><b>async / await</b><pre>public async Task&lt;Employee&gt; GetEmployeeAsync(int id)
+<section id="testing">
+<h2>14. Testing, debugging, troubleshooting, performance, security</h2>
+<div class="grid"><div class="card"><h3>Testing levels</h3><ul><li>Unit test — one class/function</li><li>Integration — multiple components</li><li>UI test — user flow</li><li>Regression — ensure old behavior still works</li><li>Mock/Stub — controlled dependency</li></ul><p>Common C# tools: xUnit, NUnit, Moq.</p></div><div class="card"><h3>Debug flow</h3><pre>Reproduce
+ ↓
+Collect evidence / logs
+ ↓
+Isolate
+ ↓
+Hypothesis
+ ↓
+Test hypothesis
+ ↓
+Root cause
+ ↓
+Fix
+ ↓
+Retest + regression test</pre></div></div>
+<div class="grid"><details open><summary>Performance</summary><ul><li>avoid blocking UI</li><li>async I/O</li><li>database indexes</li><li>pagination</li><li>EF Core AsNoTracking for read-only queries</li><li>UI virtualization where appropriate</li><li>caching when justified</li><li>measure before optimizing</li></ul></details><details open><summary>Security</summary><ul><li>parameterized SQL / EF Core</li><li>HTTPS</li><li>authentication vs authorization</li><li>password hashing with appropriate password-hashing algorithms</li><li>input validation</li><li>secret/API-key management</li><li>least privilege</li></ul></details></div>
+<div class="card"><h3>Example unit test</h3><pre>[Fact]
+public void ParseTemperature_ValidMessage_ReturnsValue()
 {
-    return await db.Employees
-        .FirstOrDefaultAsync(e =&gt; e.Id == id);
-}</pre><p class="mut">Huwag i-block ang UI thread habang naghihintay ng database/API.</p></div>
-<div class="card"><b>UI thread</b><pre>Serial DataReceived
-       ↓
-background thread
-       ↓
-Dispatcher
-       ↓
-ViewModel / UI</pre><p class="mut">Hardware callbacks can happen off the UI thread.</p></div>
-</div>
-<div class="grid"><div class="card"><b>Testing pyramid</b><pre>Unit test
-  ↓
-Service / integration test
-  ↓
-UI / end-to-end test</pre><p class="mut">Unit tests should be fast and isolated. Mock hardware/API dependencies when practical.</p></div>
-<div class="card"><b>Example unit test</b><pre>[Fact]
-public void Parser_ParsesTemperature()
-{
-    var ok = TemperatureParser.TryParse(
-        "TEMP:28.5", out var value);
+    var ok = TemperatureParser.TryParse("TEMP:28.5", out var value);
 
     Assert.True(ok);
     Assert.Equal(28.5, value);
-}</pre></div></div>
-<div class="card"><b>Performance checklist</b><p>Database: indexes, pagination, efficient queries, <code>AsNoTracking()</code> for read-only EF queries. UI: don't block the UI thread; use virtualization for large lists. API: async calls, caching where appropriate, timeouts and retries. Hardware: avoid excessive polling and unnecessary serial traffic.</p></div>
-<div class="card"><b>Security checklist</b><p>Parameterized queries/EF Core → SQL injection protection. HTTPS → transport security. Passwords → proper hashing, never plain text. API keys → environment/secret store, never hardcode in Git. Input validation → reject malformed or unexpected data. LLM output → validate before using it to trigger commands, SQL, or device actions.</p></div>
-<div class="say"><b>Interview:</b> "When debugging, I reproduce the issue, isolate the layer, inspect logs and breakpoints, identify the root cause, fix it, then retest and add regression coverage when appropriate."</div>
+}</pre></div>
 </section>
 
-<section id="assess"><h2>Technical Assessment Simulator</h2>
-<p class="mut">Ito ang bagong practice section. Subukan muna bago tingnan ang solution. Ito ang mga task na pinaka-relevant sa JD.</p>
-<div class="card"><details><summary><b>Assessment 1 — C# Palindrome</b></summary><p>Gumawa ng method na tumatanggap ng string at nagbabalik ng true kung palindrome.</p><pre>Input: "madam"
-Output: true
-
-Expected idea:
-string reversed = new string(text.Reverse().ToArray());</pre><p class="say"><b>Interview follow-up:</b> "What if input is null?" → validate/null-check before processing.</p></details></div>
-<div class="card"><details><summary><b>Assessment 2 — C# List + LINQ</b></summary><p>Given a list of employees, kunin ang Developers na active at ayusin by Name.</p><pre>var result = employees
-    .Where(e =&gt; e.Active &amp;&amp; e.Position == "Developer")
-    .OrderBy(e =&gt; e.Name)
-    .ToList();</pre></details></div>
-<div class="card"><details><summary><b>Assessment 3 — WPF + MVVM</b></summary><p>Gumawa ng Employee screen: Name TextBox, Add Button, DataGrid. Dapat MVVM ang structure.</p><pre>View → EmployeeViewModel
-TextBox → Name
-Button → AddCommand
-DataGrid → ObservableCollection&lt;Employee&gt;</pre></details></div>
-<div class="card"><details><summary><b>Assessment 4 — SQL JOIN</b></summary><p>Employees has DepartmentId. Departments has Id/Name. Ipakita ang employee name + department name, including employees with no department.</p><pre>SELECT e.Name, d.DepartmentName
-FROM Employees e
-LEFT JOIN Departments d
-  ON e.DepartmentId = d.Id;</pre></details></div>
-<div class="card"><details><summary><b>Assessment 5 — REST API</b></summary><p>GET /api/employees then display JSON in a WPF DataGrid. Explain the flow.</p><pre>HttpClient
-  ↓
-GET
-  ↓
-JSON
-  ↓
-Deserialize to List&lt;Employee&gt;
-  ↓
-ObservableCollection
-  ↓
-DataGrid</pre></details></div>
-<div class="card"><details><summary><b>Assessment 6 — STM32 UART</b></summary><p>STM32 sends TEMP:28.5 newline. C# must handle chunks safely.</p><pre>"TE" + "MP:28" + ".5\\n"
-       ↓ buffer
-"TEMP:28.5\\n"
-       ↓ parse
-28.5 °C</pre><p>Follow-up: What if the message arrives in two chunks? What if checksum fails? What if timeout occurs?</p></details></div>
-<div class="card"><details><summary><b>Assessment 7 — Hardware protocol</b></summary><p>Design a simple command/response protocol.</p><pre>PC → STM32: READ_TEMP\\n
-STM32 → PC: TEMP:28.5|OK|A91F\\n</pre><p>Be ready to explain terminator, checksum, timeout, ACK/NACK, invalid data, and retry.</p></details></div>
-<div class="card"><details><summary><b>Assessment 8 — AI/LLM</b></summary><p>Build a service that sends a user question to an LLM and returns structured JSON.</p><pre>WPF ViewModel
-  ↓
-AIService
-  ↓ HttpClient
-LLM API
-  ↓ JSON
-Validate schema
-  ↓
-ViewModel → UI</pre><p>Follow-up: Where do you store the API key? How do you handle malformed output? How do you prevent the model from executing unsafe commands?</p></details></div>
-<div class="card"><details><summary><b>Assessment 9 — Figma to WPF</b></summary><p>Convert a provided Figma dashboard into XAML. Explain how you map Auto Layout, spacing, colors, typography, and reusable components.</p><pre>Figma Auto Layout → StackPanel / Grid
-Figma component → UserControl / Style
-Figma color style → ResourceDictionary Brush</pre></details></div>
-<div class="card"><details><summary><b>Assessment 10 — Debugging</b></summary><p>Given a frozen WPF screen, explain how you investigate.</p><pre>Reproduce
- → check UI thread
- → inspect API/DB calls
- → breakpoint/logging
- → identify blocking call
- → async/await or move work off UI
- → retest
- → regression test</pre></details></div>
-<div class="say"><b>Rule:</b> Kapag hindi mo alam ang exact syntax sa exam, ipaliwanag muna ang approach at architecture. Mas mahalaga na tama ang reasoning kaysa memorized code.</div>
+<section id="git">
+<h2>15. Git / GitHub workflow</h2>
+<div class="card"><pre>Working directory
+      ↓ git add
+Staging area
+      ↓ git commit
+Local repository
+      ↓ git push
+Remote / GitHub
+      ↓
+Pull Request → review → merge</pre></div>
+<div class="row"><button class="b" data-g="edit">Edit</button><button class="b" data-g="add">git add</button><button class="b" data-g="commit">git commit</button><button class="b" data-g="push">git push</button><button class="b secondary" data-g="reset">Reset</button></div><div class="two"><div class="card" id="gw"></div><div class="card" id="gs"></div><div class="card" id="gc"></div><div class="card" id="gr"></div></div><div id="gitmsg" class="say"></div>
+<div class="card"><h3>Useful commands</h3><pre>git status
+git switch -c feature/employee-screen
+git add .
+git commit -m "Add employee screen"
+git pull
+git push -u origin feature/employee-screen</pre></div>
 </section>
 
-<section id="quiz"><h2>6. Quiz</h2><div class="card q" id="qb"></div>
-<div class="mut" id="qn">Mas malalim na code at paliwanag: nasa PDF reviewer.</div></section>
+<section id="architecture">
+<h2>16. Full Aeroworks-style system simulation</h2>
+<p class="mut">Ito ang pinakaimportanteng mental model. Imagine may desktop app na kumokonekta sa STM32, SQL, API at AI.</p>
+<div class="card"><pre>User
+ ↓
+WPF/XAML Dashboard
+ ↓ binding
+MainViewModel
+ ├──────────────→ EmployeeService → EmployeeRepository → EF Core → SQL
+ │
+ ├──────────────→ ApiService → HttpClient → REST API → JSON
+ │
+ ├──────────────→ AiService → LLM API → JSON → validation
+ │
+ └──────────────→ SerialService → USB/UART → STM32
+                                      ↓
+                              Sensor / GPIO / ADC
+</pre></div>
+<div class="grid"><div class="card"><h3>Example: temperature monitor</h3><ol><li>STM32 reads sensor through ADC.</li><li>Firmware creates <code>TEMP:28.5\n</code>.</li><li>UART sends bytes over USB serial.</li><li>C# SerialService buffers until terminator.</li><li>Parser validates and converts to <code>double</code>.</li><li>ViewModel updates an observable property.</li><li>WPF binding updates TextBlock/DataGrid.</li><li>Service can save readings to SQL.</li><li>AI service can summarize anomalies if required.</li></ol></div><div class="card"><h3>Where each concept appears</h3><p><span class="pill">C#</span> language</p><p><span class="pill">OOP</span> models/services</p><p><span class="pill">List/Dictionary</span> data in memory</p><p><span class="pill">LINQ</span> filter/query</p><p><span class="pill">WPF/XAML</span> desktop UI</p><p><span class="pill">MVVM</span> separation/binding</p><p><span class="pill">EF Core</span> DB access</p><p><span class="pill">REST/JSON</span> web integration</p><p><span class="pill">STM32/UART</span> hardware boundary</p><p><span class="pill">AI/LLM</span> intelligent feature</p></div></div>
+</section>
+
+<section id="jd">
+<h2>17. Job Description Checklist</h2>
+<div id="jdlist"></div>
+</section>
+
+<section id="cheat">
+<h2>18. Interview Cheat Sheet</h2>
+<div class="grid">
+<div class="card"><h3>What is C#?</h3><p>“C# is a programming language commonly used on the .NET platform. I use it to model data, write business logic, services, and desktop application code.”</p></div>
+<div class="card"><h3>What is WPF?</h3><p>“WPF is a Windows desktop UI framework on .NET. XAML describes the UI and C# handles application behavior.”</p></div>
+<div class="card"><h3>What is MVVM?</h3><p>“MVVM separates View, ViewModel, and Model. Binding connects the View to ViewModel state, while commands handle UI actions.”</p></div>
+<div class="card"><h3>Why ObservableCollection?</h3><p>“It raises collection-change notifications so bound WPF controls can reflect additions and removals.”</p></div>
+<div class="card"><h3>Why interface?</h3><p>“An interface defines a contract. It lets me swap implementations and makes services easier to test with mocks.”</p></div>
+<div class="card"><h3>Why async/await?</h3><p>“To avoid blocking the UI during I/O such as API, database, or file operations.”</p></div>
+<div class="card"><h3>How do you debug?</h3><p>“I reproduce the issue, isolate the failing layer, inspect logs/breakpoints, test a hypothesis, fix the root cause, then retest.”</p></div>
+<div class="card"><h3>You don't know STM32 deeply?</h3><p>“My stronger experience is software, but I understand the communication flow and core peripherals. I would be transparent about my current level and learn the team's HAL/CubeIDE workflow quickly.”</p></div>
+</div>
+<div class="say"><b>Never memorize only the words.</b> Understand the flow and explain it using one simple example: Employee Management or Temperature Monitoring.</div>
+</section>
+
+<section id="exam">
+<h2>19. Mock Technical Exam</h2>
+<p class="mut">30 questions. C# → OOP → DS → LINQ → WPF → MVVM → SQL → API → STM32 → AI → testing.</p>
+<div class="card"><div class="score" id="examscore">0 / 30</div><div class="progress"><i id="bar"></i></div></div><div class="card" id="exambox"></div>
+</section>
+
+<section id="plan">
+<h2>20. Crash Study Plan</h2>
+<div class="card"><h3>Day 1 — C# basics</h3><p>Variables → if/else → loops → methods → arrays → List → Dictionary → null → try/catch.</p></div>
+<div class="card"><h3>Day 2 — OOP + data structures + LINQ</h3><p>Class/object → constructor → properties → encapsulation → inheritance → polymorphism → interface → List/Dictionary/Queue/Stack → Where/Select/OrderBy/FirstOrDefault.</p></div>
+<div class="card"><h3>Day 3 — WPF + XAML</h3><p>Controls → Grid/StackPanel → binding → DataGrid → resources → commands.</p></div>
+<div class="card"><h3>Day 4 — MVVM + EF Core + SQL</h3><p>INotifyPropertyChanged → ObservableCollection → ICommand → Service → Repository → DbContext → CRUD → JOIN.</p></div>
+<div class="card"><h3>Day 5 — REST + async + Git</h3><p>HTTP → JSON → HttpClient → status codes → async/await → exceptions → branch/add/commit/push/PR.</p></div>
+<div class="card"><h3>Day 6 — STM32 + serial + protocol</h3><p>C basics → GPIO → ADC → UART → I2C/SPI → buffer → terminator → checksum/CRC → timeout/retry → Dispatcher.</p></div>
+<div class="card"><h3>Day 7 — Figma + AI + testing + interview</h3><p>Figma mapping → LLM API → RAG → structured output → validation → testing → debugging → practice answers.</p></div>
+<div class="hero"><b>If short on time:</b> Prioritize C# fundamentals, OOP, List/Dictionary, LINQ, WPF/MVVM, SQL/EF Core, REST/async, then understand the STM32 serial flow.</div>
+</section>
+
 </main>
+<footer>Aeroworks Interview Lab — designed as a self-study companion. Use it with your actual projects and be honest about what you have and have not used professionally.</footer>
 <script>
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const tabs=[["big","Big picture"],["jd","JD checklist"],["csharp","C# Fundamentals"],["oop","C# + OOP"],["wpf","WPF + XAML"],["mvvm","MVVM"],["ef","EF Core"],["sql","SQL"],["rest","REST"],["emb","Embedded"],["ser","Serial"],["pro","Async / Testing / Security"],["ai","AI/LLM"],["git","Git"],["assess","Assessment"],["quiz","Quiz"]];
-const nav=$("#nav");tabs.forEach(([id,t],i)=>{const b=document.createElement("button");b.textContent=t;b.setAttribute("role","tab");b.onclick=()=>show(id);b.dataset.id=id;nav.append(b)});
-function show(id){$$("section").forEach(s=>s.classList.toggle("on",s.id===id));$$("#nav button").forEach(b=>b.setAttribute("aria-selected",b.dataset.id===id))}show("big");
-const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
-/* 1 big picture */
-const L=[["View: WPF + XAML","Restaurant: dining area at menu. Ito ang nakikita ng user. XAML = itsura; walang business logic dito."],
-["ViewModel: MVVM","Restaurant: waiter. Hawak ang data na ipinapakita (properties) at tumatanggap ng click (commands). Gumagamit ng INotifyPropertyChanged at ICommand."],
-["Service: C# business logic","Restaurant: kitchen. Dito ang rules at computation. Gumagamit ng OOP at interfaces para madaling palitan at i-test."],
-["Repository: EF Core / SQL","Restaurant: pantry. Ang tanging layer na nakikipag-usap sa database. Hindi dapat may SQL sa ViewModel."],
-["Outside world: SQL DB, REST API, LLM, STM32","Warehouse, supplier, at kitchen sensor. SQL = persistent data. REST/LLM = HTTP + JSON. STM32 = hardware sa pamamagitan ng UART/USB serial."]];
-L.forEach((l,i)=>{const b=document.createElement("button");b.className="layer";b.innerHTML="<b>"+l[0]+"</b>";b.onclick=()=>{$$(".layer").forEach(x=>x.setAttribute("aria-pressed",x===b));$("#ldesc").textContent=l[1]};$("#layers").append(b)});
-$("#ldesc").textContent="I-click ang isang layer sa itaas.";
-/* 2 mvvm */
-const vm={NewName:"",Employees:[]};let shown={cnt:0,en:false};
-function log(m){$("#log").textContent=m}
-function render(){$("#cnt").textContent=vm.Employees.length;$("#add").disabled=!vm.NewName.trim();$("#lst").innerHTML=vm.Employees.map(e=>"<li>"+esc(e)+"</li>").join("")}
-function vmj(){$("#vmj").textContent=JSON.stringify(vm,null,1)}
-function note(){$("#mnote").innerHTML=$("#notify").checked?"ON: tuwing may nagbago sa ViewModel, nag-fire ang PropertyChanged kaya nag-refresh ang UI (count, Add button).":"<b>OFF:</b> nagbabago ang ViewModel (tingnan ang JSON) pero walang notification, kaya hindi nag-uupdate ang count at ang Add button. Ito ang pinakakaraniwang bug sa MVVM."}
-$("#nm").oninput=e=>{vm.NewName=e.target.value;vmj();if($("#notify").checked){log("PropertyChanged('NewName') fired");render()}else log("(walang event na na-fire)")};
-$("#add").onclick=()=>{vm.Employees.push(vm.NewName.trim());vm.NewName="";$("#nm").value="";vmj();if($("#notify").checked){log("CollectionChanged + PropertyChanged('NewName')");render()}else log("(walang event na na-fire)")};
-$("#notify").onchange=()=>{note();if($("#notify").checked)render()};
-$("#add").disabled=true;note();vmj();
-/* 3 sql */
-const E=[[1,"Alberto",30000,1],[2,"Maria",35000,2],[3,"Jose",28000,2],[4,"Ana",32000,null]],D={1:"Firmware",2:"Software",3:"HR"};
-function sql(){const t=$("#jt").value,ms=+$("#ms").value||0;let rows=[],q;
-if(t=="i"){q="SELECT e.Name, d.DepartmentName\nFROM Employees e\nINNER JOIN Departments d ON e.DepartmentId = d.Id";E.filter(e=>e[3]&&e[2]>=ms).forEach(e=>rows.push([e[1],D[e[3]]]))}
-else if(t=="le"){q="SELECT e.Name, d.DepartmentName\nFROM Employees e\nLEFT JOIN Departments d ON e.DepartmentId = d.Id";E.filter(e=>e[2]>=ms).forEach(e=>rows.push([e[1],e[3]?D[e[3]]:null]))}
-else{q="SELECT d.DepartmentName, e.Name\nFROM Departments d\nLEFT JOIN Employees e ON e.DepartmentId = d.Id";Object.keys(D).forEach(k=>{const m=E.filter(e=>e[3]==k&&e[2]>=ms);if(m.length)m.forEach(e=>rows.push([D[k],e[1]]));else rows.push([D[k],null])})}
-if(ms>0)q+="\nWHERE e.Salary >= "+ms;
-$("#sq").textContent=q;const h=t=="ld"?["DepartmentName","Name"]:["Name","DepartmentName"];
-$("#sr").innerHTML="<table><tr>"+h.map(x=>"<th>"+x+"</th>").join("")+"</tr>"+rows.map(r=>"<tr>"+r.map(c=>"<td>"+(c===null?'<span class="bad">NULL</span>':esc(c))+"</td>").join("")+"</tr>").join("")+"</table>"+(rows.length?"":"<span class='mut'>0 rows</span>")}
-$("#jt").onchange=sql;$("#ms").oninput=sql;sql();
-/* 4 rest */
-const R=[["GET /api/employees",200,[{id:1,name:"Alberto"},{id:2,name:"Maria"}],"Kinuha ang buong listahan."],["GET /api/employees/1",200,{id:1,name:"Alberto"},"Kinuha ang isang resource."],["GET /api/employees/99",404,{error:"Not found"},"Walang ganitong resource."],
-["POST /api/employees",201,{id:3,name:"Jose"},"201 Created: may bagong record."],["PUT /api/employees/1",200,{id:1,name:"Alberto R."},"Pinalitan ang buong resource."],["PATCH /api/employees/1",200,{id:1,name:"Alberto",salary:31000},"Isang field lang ang binago."],["DELETE /api/employees/1",204,null,"204 No Content: nabura na, walang body."]];
-R.forEach((r,i)=>$("#rq").append(new Option(r[0],i)));
-$("#send").onclick=()=>{const r=R[$("#rq").value];let c=r[1],b=r[2],n=r[3];if(!$("#tok").checked){c=401;b={error:"Unauthorized"};n="Walang token kaya tinanggihan. 401 = hindi naka-login, 403 = bawal ang access."}
-const k=c<300?"ok":"bad";$("#rs").innerHTML="<div>"+esc(r[0])+" → <span class='"+k+"'>"+c+"</span></div><pre>"+(b?esc(JSON.stringify(b,null,1)):"(no body)")+"</pre><div>"+n+"</div>"}
-/* 4b serial */
-const CH=["TE","MP:2","8.5\n","TEMP:","29.1\n"];let ci=0,bf="",raw=[];
-function sr(){$("#raw").textContent=raw.join(" | ")||"—";$("#bf").textContent=$("#buf").checked?JSON.stringify(bf):"(buffer OFF)"}
-function parse(l){const m=/^TEMP:(-?\d+(\.\d+)?)$/.exec(l.trim());return m?parseFloat(m[1]):null}
-$("#nx").onclick=()=>{const c=CH[ci%CH.length];ci++;raw.push(JSON.stringify(c).slice(1,-1));let out="";
-if($("#buf").checked){bf+=c;let i;while((i=bf.indexOf("\n"))>=0){const l=bf.slice(0,i);bf=bf.slice(i+1);const v=parse(l);out=v!==null?"<span class='ok'>"+v+" °C</span>":"<span class='bad'>invalid</span>";$("#pl").textContent='Parsed "'+l+'" after the terminator.'}if(!out){$("#pl").textContent="Hindi pa kumpleto ang message, hinihintay ang \\n."}}
-else{const v=parse(c);out=v!==null?"<span class='ok'>"+v+" °C</span>":"<span class='bad'>Parse error</span>";$("#pl").textContent='Sinubukang i-parse ang '+JSON.stringify(c)+' nang putol, kaya sira.'}
-if(out)$("#res").innerHTML=out;sr()};
-$("#rst").onclick=()=>{ci=0;bf="";raw=[];$("#res").textContent="—";$("#pl").textContent="";sr()};$("#buf").onchange=()=>$("#rst").click();
-$("#tx").onclick=()=>{$("#pl").textContent='TX → "READ_TEMP\\n". Sa firmware, ang RX interrupt ang magbubuo ng line at sasagot ng "TEMP:xx.x".'};sr();
-/* 5 git */
-let g;function greset(){g={w:[],s:[],c:[],r:[],n:0};gr("Mag-edit ng file para magsimula.")}
-function gr(m){["Working directory","Staging area","Local repo","Remote (GitHub)"].forEach((t,i)=>{$("#z"+i).innerHTML="<b>"+t+"</b><br>"+[g.w,g.s,g.c,g.r][i].map(x=>"<span class='f'>"+x+"</span>").join("")});$("#gmsg").textContent=m}
-$$("[data-g]").forEach(b=>b.onclick=()=>{const a=b.dataset.g;if(a=="reset")return greset();
-if(a=="edit"){g.n++;g.w.push("file"+g.n+".cs");gr("May bagong changes. Hindi pa ito nasa history.")}
-else if(a=="add"){if(!g.w.length)return gr("Walang i-stage. Mag-edit muna.");g.s.push(...g.w);g.w=[];gr("Naka-stage na. Ito ang ilalagay sa susunod na commit.")}
-else if(a=="commit"){if(!g.s.length)return gr("Walang naka-stage. Mag git add muna.");g.c.push("commit: "+g.s.join(", "));g.s=[];gr("Naka-save na sa local history. Ikaw lang ang may kopya pa.")}
-else{if(!g.c.length)return gr("Walang i-push. Mag-commit muna.");g.r.push(...g.c);g.c=[];gr("Nasa remote na. Puwede nang mag-open ng Pull Request ang team para sa review.")}});greset();
-/* 6 quiz */
-const Q=[["Ano ang pinagkaiba ng C# at .NET?",["Pareho lang sila","C# ang language, .NET ang platform/runtime","C# ang UI framework"],1,"C# = language. .NET = platform. WPF = UI framework sa .NET."],
-["Bakit hindi nag-uupdate ang UI kahit nagbago ang property sa ViewModel?",["Walang PropertyChanged notification","Maling font","Walang Git"],0,"Kailangan ng INotifyPropertyChanged (o SetProperty) para malaman ng binding."],
-["Alin ang tamang lugar ng SQL query?",["MainWindow.xaml.cs","ViewModel","Repository / data layer"],2,"Ihiwalay ang database access sa UI at ViewModel."],
-["Bakit gumagamit ng ObservableCollection?",["Mas mabilis ito sa List","Nagno-notify ito sa UI kapag may add/remove","Para sa SQL only"],1,"Auto-refresh ng DataGrid/ListBox sa pagbabago ng items."],
-["Nag-freeze ang window habang tumatawag ng API. Solusyon?",["async/await","Mas malaking monitor","Gumamit ng goto"],0,"Huwag i-block ang UI thread; gumamit ng async/await."],
-["Aling JOIN ang magbabalik ng employee na walang department?",["INNER JOIN","LEFT JOIN (Employees sa kaliwa)","DELETE"],1,"LEFT JOIN: lahat ng nasa kaliwa, may NULL kung walang match."],
-["UART, I2C, o SPI: dalawang wire, maraming device, may address?",["UART","I2C","SPI"],1,"I2C = SDA + SCL, address ang pagkilala sa device."],
-["Bakit kailangan ng buffer sa serial reading?",["Para gumanda ang UI","Dahil puwedeng dumating nang putol-putol ang message","Para mabilis ang baud rate"],1,"Buuin hanggang may terminator (hal. \\n), saka i-parse."],
-["Error: cross-thread operation sa serial DataReceived. Fix?",["Dispatcher.Invoke","Alisin ang COM port","Gumamit ng SPI"],0,"I-marshal ang UI update pabalik sa UI thread."],
-["Ano ang RAG?",["Retrieve relevant data muna, ibigay sa LLM bilang context","Isang SQL command","Isang Git branch"],0,"Retrieval-Augmented Generation: grounded ang sagot sa nakuhang data."],
-["Paano mo ide-debug ang bug?",["Reproduce, isolate, root cause, fix, retest","Burahin ang code","I-restart ang PC lang"],0,"Idagdag ang regression test para hindi bumalik."]];
-
-/* JD checklist */
-const J=[
-["Key responsibilities"],
-["Desktop apps: C# + WPF","C# ang language, WPF ang Windows UI framework. XAML ang itsura, ViewModel ang data at behavior.",'<Button Content="Save" Command="{Binding SaveCommand}"/>',"I build WPF screens in XAML and keep logic in ViewModels."],
-["Web: HTML, CSS, JavaScript","HTML = structure, CSS = layout/style (Flexbox, Grid), JS = behavior. fetch() ang tumatawag sa API at nagbabasa ng JSON.","fetch('/api/items').then(r=>r.json()).then(render)","My background is web, so REST, JSON, and async are familiar."],
-["Architecture: MVVM + OOP","Layers: View, ViewModel, Service, Repository. OOP: encapsulation, inheritance, polymorphism, abstraction. SOLID: isang class = isang trabaho; umasa sa interface.","View → ViewModel → Service → Repository → DB","I separate layers and depend on interfaces, so code stays maintainable and testable."],
-["STM32 embedded (C/C++)","Firmware sa microcontroller: GPIO, ADC, timers, UART/I2C/SPI, interrupts. HAL ang ready-made library ng ST; CubeMX ang nag-ge-generate ng setup.","HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);","I know the fundamentals and can read HAL code; I practiced with a UART demo."],
-["Software ↔ hardware communication","Karaniwan: serial (UART/USB virtual COM). Kailangan ng protocol: terminator, buffer, checksum, timeout. Update UI gamit ang Dispatcher.","TEMP:28.5*7F\\n   (data * checksum, terminator)","I buffer until a terminator, validate, parse, then marshal to the UI thread."],
-["Figma → functional UI","Ang Figma ang spec. Auto Layout = Grid/StackPanel/Flexbox. Color at text styles = ResourceDictionary / CSS variables. Variants = Style Triggers / :hover.","--primary:#0e8f86;  /* galing sa Figma color style */","I extract styles into reusable resources and keep behavior separate."],
-["SQL + database-driven apps","Tables, primary/foreign keys, JOIN, GROUP BY, index, transaction. EF Core = ORM: class = table, LINQ = query. Parameterized queries laban sa SQL injection.","await db.Employees.Where(e=>e.DepartmentId==2).ToListAsync();","The ViewModel never contains SQL; a repository handles data access."],
-["Integrate ML / AI / LLM","Tawagin ang LLM API sa service layer, humingi ng structured JSON, i-validate, i-handle ang errors/rate limits, itago ang API key. RAG: retrieve docs muna, saka ibigay sa LLM.","var json = await llm.AskAsync(prompt); Validate(json);","I integrate models through a controlled service layer and validate every response."],
-["AI-assisted automation and tools","Mga ideya: log summarizer, anomaly detection sa sensor data, free-text report → structured JSON → SQL, search sa technical docs gamit RAG.","raw log → LLM → {cause, severity} → DB","I'd start with a small, reviewable automation and measure if it helps."],
-["Testing, debugging, performance","Flow: reproduce → isolate → logs/breakpoints → root cause → fix → retest → regression test. Performance: async, AsNoTracking, index, UI virtualization.","[Fact] Assert.True(TemperatureParser.TryParse(\"TEMP:28.5\", out _));","I reproduce first, find the root cause, fix it, and add a test."],
-["Collaboration: hardware, firmware, QA","Mag-agree sa protocol document (message format) bago mag-code. Gumamit ng mock device, Git branches + pull requests, at malinaw na bug report (steps, expected, actual).","PROTOCOL.md: TEMP:<float>\\n | READ_TEMP\\n","I agree on interfaces early and use mocks so teams don't block each other."],
-["Requirements → reliable solutions","Linawin ang goal, hatiin sa maliliit na task, acceptance criteria, magtanong nang maaga, mag-deliver nang paunti-unti.","Requirement → tasks → demo → feedback","I clarify requirements, break work down, and deliver in small testable steps."],
-["Documentation and standards","README, protocol spec, comments sa public API, consistent naming, code review, .editorconfig. Dapat may dokumento ang bawat module.","/// <summary>Parses TEMP messages.</summary>","I document interfaces and follow the team's coding standards."],
-["Research new technologies","Gumawa ng maliit na proof of concept, ikumpara ang options (fit, maintenance, community, risk), ipresenta ang trade-offs.","POC → compare → recommend","I evaluate with a small proof of concept before recommending."],
-["Qualifications"],
-["Degree sa related field","CompE, CS, IT, ECE o related. Kung iba ang kurso mo, ipakita ang projects, experience, at demo apps.","Portfolio: GitHub + capstone","My degree is related, and my projects show hands-on skills."],
-["Strong knowledge of C# + WPF, OOP, MVVM","Experience O strong knowledge ang hinihingi. Ang demo project (Capstone sa PDF) ay patunay ng knowledge.","SetProperty(ref _x, value);","I understand MVVM and built a small demo to practice."],
-["Problem-solving, debugging, analytical","Magsalita nang malakas habang nag-iisip. Hatiin ang problema, subukan ang hypothesis, mag-verify gamit ang logs/tests.","hypothesis → test → conclusion","I narrow the problem down step by step and verify the fix."],
-["Work across software, hardware, embedded","Buong chain: Sensor → STM32 → UART → C# Service → ViewModel → WPF UI → SQL/API/AI.","Sensor→STM32→UART→C#→UI→DB","I understand each layer well enough to debug across the boundary."]];
-J.forEach(j=>{if(j.length==1){const h=document.createElement("h2");h.textContent=j[0];$("#jdl").append(h);return}
-const d=document.createElement("details");d.className="card";d.innerHTML="<summary><b>"+esc(j[0])+"</b></summary><p>"+esc(j[1])+"</p><pre>"+esc(j[2])+"</pre><div class='say'><b>Say this:</b> \""+esc(j[3])+"\"</div>";$("#jdl").append(d)});
-/* OOP lab */
-$("#orun").onclick=()=>{const n=$("#nt").value,t=+$("#tp").value;$("#ocode").textContent="var alert = new AlertService(new "+n+"());\nalert.HighTemperature("+t+");  // same AlertService code";
-$("#oout").innerHTML=t>80?(n=="EmailNotification"?"EMAIL: Temperature high: "+t:n=="SmsNotification"?"SMS: Temperature high: "+t:"MOCK: recorded message (no real send, perfect for unit tests)"):"Temp "+t+" ay normal (80 pababa), walang notification."};
-/* Embedded lab */
-const EP=["GPIO","ADC","UART","I2C","SPI","Interrupt"],ES=[["I-on at i-off ang LED.","GPIO","GPIO = digital input/output pin."],["Basahin ang analog voltage ng temperature sensor.","ADC","ADC = nagko-convert ng analog voltage sa digital number."],["USB-serial link ng STM32 papunta sa C# app, 1-to-1.","UART","UART = async TX/RX, point-to-point; kailangang pareho ang baud rate."],["5 mabagal na sensor sa iisang 2-wire bus, may address bawat isa.","I2C","I2C = SDA + SCL, maraming device via address."],["Mabilis na display o flash memory na may chip select.","SPI","SPI = MOSI/MISO/SCK/CS, synchronous at mabilis."],["Dapat agad na ma-handle ang button press nang hindi paulit-ulit na tsine-check.","Interrupt","Interrupt = hardware event na pansamantalang humihinto sa main code (vs polling)."]];
-let ei=0;EP.forEach(p=>{const b=document.createElement("button");b.className="b g";b.textContent=p;b.onclick=()=>{const s=ES[ei];$("#eex").innerHTML=(p==s[1]?"<span class='ok'>Tama.</span> ":"<span class='bad'>Hindi.</span> ")+esc(s[2])+" <button class='b' id='en'>Next scenario</button>";$("#en").onclick=()=>{ei=(ei+1)%ES.length;er()}};$("#eb").append(b)});
-function er(){$("#esc").textContent=ES[ei][0];$("#eex").innerHTML="";$("#esc2").textContent="Scenario "+(ei+1)+" / "+ES.length}er();
-/* AI lab */
-$("#arun").onclick=()=>{const r=$("#rag").checked,b=$("#bad").checked,v=$("#val").checked;let h="<ol><li>Service builds prompt"+(r?" + retrieved docs (RAG): 'Device A maintenance log, 11:40 PM'":" (walang company context)")+"</li><li>POST to LLM API (HTTP + JSON), API key mula sa secret store</li><li>Raw response: <code>"+(b?"{cause: 'fan fail":"{\"cause\":\"fan failure\",\"severity\":\"high\"}")+"</code></li>";
-if(b&&!v)h+="<li class='bad'>Walang validation: JsonException, mag-crash o magpakita ng sira sa UI.</li>";
-else if(b)h+="<li class='ok'>Validation nakahuli ng invalid JSON → retry o friendly error sa UI, naka-log ang detalye.</li>";
-else h+="<li>Validate schema → OK</li><li class='ok'>UI: "+(r?"Fan failure (high), batay sa maintenance log.":"Posibleng sanhi: overheating. Generic at maaaring hallucination, kaya mas maganda ang RAG.")+"</li>";$("#aout").innerHTML=h+"</ol>"};
-/* extra quiz */
-Q.push(["Alin ang ginagawa ng polymorphism?",["Itinatago ang private fields","Pareho ang interface, puwedeng magpalit ng implementation","Kumokopya ng code sa child class"],1,"Hal. INotification na may Email, SMS, at Mock implementation."],
-["Anong layer ang dapat gumamit ng LLM API?",["XAML code-behind","Controlled service layer","Button Click event"],1,"Para madaling i-validate, i-handle ang errors, at itago ang API key."],
-["Paano mo isasalin ang Figma color styles sa WPF?",["Hardcode sa bawat control","ResourceDictionary na may Brushes","Sa SQL table"],1,"Reusable resources; isang baguhan lang kapag nag-iba ang design."],
-["Bakit volatile ang variable na binabago sa interrupt sa STM32?",["Para lumaki ang memory","Para hindi i-cache ng compiler ang value","Para sa UART baud rate"],1,"Puwedeng magbago ang value kahit hindi ito binabago ng main loop."],
-["Ano ang una mong gagawin sa bug report?",["Mag-code agad ng fix","I-reproduce ang bug","I-delete ang module"],1,"Reproduce → isolate → root cause → fix → retest."],
-["Ano ang gamit ng EF Core?",["ORM: C# classes ↔ database tables","UI framework","Serial protocol"],0,"DbContext, DbSet, LINQ, migrations."],
-["Hardware, firmware, at software team: ano ang unang dapat i-agree?",["Kulay ng UI","Message protocol (format, terminator, checksum)","Pangalan ng Git branch"],1,"Dokumentadong interface para hindi mag-block ang teams."],
-["Kapag hindi mo alam ang isang tool sa interview, ano ang pinakamagandang sagot?",["Magkunwaring expert","Aminin, ipaliwanag ang alam mo, at sabihin kung paano ka matututo","Manahimik"],1,"Tapat at mabilis matuto ang hinahanap nila."]);
-Q.push(["Ano ang difference ng C# at .NET?",["Pareho lang sila","C# ay language; .NET ay platform/runtime ecosystem","WPF ay language"],1,"C# is the language; .NET provides the runtime, libraries, SDK, and application platform."],
-["Alin ang recommended flow sa WPF MVVM app?",["View → SQL directly","View → ViewModel → Service → Repository → DB","Button → SQL string in XAML"],1,"Keep UI, business logic, and data access separated."],
-["Anong collection ang magandang gamitin kapag kailangang mag-notify ang UI sa add/remove?",["ObservableCollection<T>","Dictionary only","string"],0,"ObservableCollection<T> raises collection change notifications."],
-["Ano ang ginagawa ng async/await sa desktop app?",["Pinipigilan ang database","Tumutulong na huwag i-block ang UI habang naghihintay ng asynchronous work","Ginagawang SQL ang C#"],1,"API/DB operations can await without freezing the UI thread when used correctly."],
-["Ano ang EF Core?",["UI framework","ORM/data-access technology for .NET","Serial protocol"],1,"EF Core maps .NET objects/entities to relational database data."],
-["Sa STM32 UART, bakit kailangan ng buffer?",["Dahil buong message laging dumarating sa isang read","Dahil maaaring dumating ang bytes nang putol-putol","Para palitan ang baud rate"],1,"A serial read is not guaranteed to contain one complete application message."],
-["Saan dapat itago ang LLM API key?",["Hardcoded sa Git","Secret/environment/configuration mechanism","Sa XAML button text"],1,"Secrets should not be committed to source control."],
-["Ano ang tamang first step sa performance bug?",["Guess and rewrite everything","Measure/reproduce and identify the bottleneck","Increase font size"],1,"Profile or measure before optimizing."],
-["Ano ang best response kapag hindi mo pa nagagamit ang STM32 professionally?",["Sabihin na expert ka","Sabihin ang totoong experience, explain what you know, then explain how you would learn/validate","Iwasan ang tanong"],1,"Honest, specific, and evidence-based is stronger than pretending."]);
-let qi=0,sc=0,done=false;
-function qr(){const b=$("#qb");if(qi>=Q.length){b.innerHTML="<h2>Score: "+sc+" / "+Q.length+"</h2><p>"+(sc>=Q.length*0.8?"Handa ka na. I-review lang ang Q&A sa PDF.":"Balikan ang mga lab sa itaas, tapos subukan ulit.")+"</p><button class='b' id='again'>Ulitin</button>";$("#again").onclick=()=>{qi=0;sc=0;qr()};return}
-const q=Q[qi];done=false;b.innerHTML="<div class='mut'>Tanong "+(qi+1)+" / "+Q.length+"</div><p><b>"+esc(q[0])+"</b></p>"+q[1].map((o,i)=>"<label data-i='"+i+"'><input type='radio' name='o' hidden>"+esc(o)+"</label>").join("")+"<div id='ex'></div>";
-$$("#qb label").forEach(l=>l.onclick=()=>{if(done)return;done=true;const i=+l.dataset.i;if(i==q[2])sc++;l.classList.add(i==q[2]?"right":"wrong");$$("#qb label")[q[2]].classList.add("right");
-$("#ex").innerHTML="<div class='say'>"+(i==q[2]?"<span class='ok'>Tama.</span> ":"<span class='bad'>Mali.</span> ")+esc(q[3])+"</div><button class='b' id='nq'>"+(qi==Q.length-1?"See score":"Next")+"</button>";$("#nq").onclick=()=>{qi++;qr()}})}
-qr();
-/* explanations per tab */
-const X={
-big:["Mapa ng buong system: kung paano nagkakaugnay ang UI, logic, data, at hardware.","I-click ang bawat layer mula itaas pababa at basahin ang restaurant analogy.","Ang action ng user ay dumadaan sa View → ViewModel → Service → Repository → DB/API/Hardware. Bumabalik ang resulta sa UI sa pamamagitan ng data binding.","Ito ang sagot sa 'explain your architecture'."],
-jd:["Bawat requirement sa job description, isa-isang ipinaliwanag.","I-click ang item, basahin ang paliwanag, tingnan ang example, at i-practice na sabihin ang 'Say this'.","Bawat item ay may 3 bahagi: ano ito, maliit na example, at sagot sa interview.","Para walang requirement na hindi mo napag-aralan."],
-oop:["Ipinapakita ang polymorphism at abstraction gamit ang alert system.","Pumili ng notifier, ilagay ang temperature, pindutin ang Run. Subukan ang 85 at 70.","Umaasa ang AlertService sa INotification interface, hindi sa Email o SMS. Kaya puwedeng palitan ang implementation nang hindi binabago ang AlertService. Nagpapadala lang ito kapag mas mataas sa 80 ang temperature.","Ito ang basehan ng testing (Mock) at ng Dependency Injection."],
-mvvm:["Live na demo ng View (kaliwa) at ViewModel (kanan).","1) Mag-type sa TextBox at tingnan ang JSON sa kanan. 2) I-click Add. 3) I-off ang INotifyPropertyChanged at ulitin: hindi na nag-uupdate ang UI.","Naka-bind ang View sa properties ng ViewModel. Kapag nagbago ang property, ang SetProperty ay nagpapalabas ng PropertyChanged; nakikinig ang binding at nire-refresh ang UI. Ang Add button ay naka-bind sa ICommand, at ang CanExecute ang nagdi-disable nito kapag walang laman ang TextBox.","Pinakamadalas itanong sa WPF interview."],
-sql:["Ipinapakita kung paano pinagsasama ng JOIN ang dalawang table.","Palitan ang JOIN type. Maglagay ng min salary para magdagdag ng WHERE.","INNER: match lang. LEFT: lahat ng nasa kaliwang table, NULL kung walang match. Si Ana ay walang department kaya NULL; ang HR ay walang employee kaya lumalabas lang sa Departments LEFT JOIN.","Ito ang query sa likod ng DataGrid sa totoong app."],
-rest:["Simulation ng pag-uusap ng app at API.","Pumili ng request, i-click Send, basahin ang status at JSON. I-off ang token at ulitin.","May method + URL (+ body) ang request. Sasagot ang server ng status code at JSON. Sa C#, ang HttpClient ang nagpapadala at ang JSON ay dine-deserialize sa model.","Dito kumokonekta ang app sa backend at sa mga AI API."],
-emb:["Scenario game para malaman kung anong peripheral ang gagamitin.","Basahin ang scenario, i-click ang sa tingin mong tama, at basahin ang paliwanag.","GPIO = digital pin. ADC = analog papuntang digital. UART = 1-to-1 serial. I2C = shared 2-wire bus na may address. SPI = mabilis, may chip select. Interrupt = event-driven sa halip na polling.","Ipinapakita nito na naiintindihan mo ang hardware side."],
-ser:["Simulation ng data mula STM32 papuntang C# app.","I-click ang Next chunk nang paulit-ulit. Pagkatapos, i-off ang Buffer at ulitin.","Bytes ang pinapadala ng UART, hindi buong message, kaya puwedeng putol-putol ang dating. Ang buffer ay nag-iipon hanggang may \\n terminator, saka lang ito pina-parse. Kapag walang buffer, sira ang parse.","Pinakamadalas na bug sa software-hardware communication."],
-ai:["Hakbang-hakbang na pipeline ng LLM sa loob ng app.","I-click ang Run. Subukan ang kombinasyon ng RAG, sirang JSON, at validation.","Bumubuo ang service ng prompt (may context kung RAG), tumatawag sa API, tumatanggap ng response, vina-validate, saka ipinapakita sa UI. Ang RAG ay nagdadagdag ng totoong data para hindi manghula ang model. Ang validation ay pumipigil sa crash kapag sira ang output.","Ito ang core ng 'integrate LLM' requirement."],
-git:["Daan ng code mula sa computer mo papunta sa team.","Pindutin nang sunod-sunod: Edit → git add → git commit → git push.","Working directory (mga binago) → Staging (pinili para sa commit) → Local repo (history sa PC mo) → Remote (nasa GitHub, kita ng team).","Para sa collaboration at code review."],
-quiz:["Pagsusulit para i-check ang naintindihan mo.","Pumili ng sagot at lalabas ang paliwanag.","28+ na tanong na sakop ang lahat ng tab.","Ulitin hanggang 80% pataas ang score."]};
-Object.assign(X,{
-csharp:["Core C# language skills needed before WPF.","Read each example and try rewriting it without looking.","The job's WPF, EF Core, REST, and embedded integrations all rely on C# fundamentals: types, classes, interfaces, collections, LINQ, exceptions, and async.","If they give you a coding test, this is your base."],
-wpf:["Windows desktop UI using XAML and C#.","Study the controls table, then trace TextBox → binding → ViewModel and DataGrid → collection.","WPF gives the desktop UI layer; XAML describes layout; binding/commands connect it to MVVM.","This is one of the most specific technologies in the JD."],
-ef:["C# object-to-database layer using Entity Framework Core.","Read Model → DbContext → LINQ/CRUD → SQL. Then explain where each belongs.","EF Core handles much of the mapping and data access while keeping database concerns out of the UI.","Very useful for database-driven WPF applications."],
-pro:["Production-level topics: async, tests, performance, security.","Read the code blocks and memorize the debugging flow.","A good developer must keep the UI responsive, test important logic, measure bottlenecks, and protect secrets/data.","These topics distinguish a demo from maintainable software."],
-assess:["A realistic practice set based on the responsibilities in the JD.","Try to solve each task first, then open the solution/expected approach.","The assessments connect C#, WPF/MVVM, SQL, REST, STM32/UART, Figma, AI, and debugging.","Use this tab as your final mock technical exam."]
-});
-Object.keys(X).forEach(k=>{const s=document.getElementById(k),a=X[k],d=document.createElement("details");d.className="card expl";d.open=true;
-d.innerHTML="<summary>Paano ito gumagana?</summary><p><b>Ano ito:</b> "+a[0]+"</p><p><b>Paano gamitin:</b> "+a[1]+"</p><p><b>Sa likod:</b> "+a[2]+"</p><p><b>Bakit mahalaga:</b> "+a[3]+"</p>";s.querySelector("h2").after(d)});
-</script></body></html>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const tabs=[['start','Start'],['csharp','C# Beginner'],['oop','OOP'],['ds','Data Structures'],['linq','LINQ'],['async','Async'],['wpf','WPF/XAML'],['mvvm','MVVM'],['ef','SQL/EF Core'],['rest','REST/JSON'],['embedded','C/C++/STM32'],['serial','Serial'],['figma','Figma'],['ai','AI/LLM'],['testing','Testing'],['git','Git'],['architecture','Full System'],['jd','JD Checklist'],['cheat','Cheat Sheet'],['exam','Mock Exam'],['plan','Study Plan']];
+const nav=$('#nav');tabs.forEach(([id,t])=>{let b=document.createElement('button');b.textContent=t;b.dataset.id=id;b.onclick=()=>show(id);nav.appendChild(b)});function show(id){$$('section').forEach(s=>s.classList.toggle('on',s.id===id));$$('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.id===id));location.hash=id}show(location.hash.slice(1)||'start');
+$('#theme').onclick=()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';$('#theme').textContent=document.documentElement.dataset.theme==='dark'?'Light mode':'Dark mode'};
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+// C# playground
+$('#crun').onclick=()=>{let n=$('#cname').value||'Developer',t=Number($('#ctemp').value);$('#cout').textContent=`string name = "${n}";\ndouble temperature = ${t};\n\nif (temperature > 80)\n    Console.WriteLine("HIGH");\nelse\n    Console.WriteLine("NORMAL");\n\nResult: ${n} → ${t>80?'HIGH temperature':'NORMAL temperature'}`};
+// OOP simulator
+$('#orun').onclick=()=>{let n=$('#notifier').value,t=Number($('#otemp').value);$('#ocode').textContent=`INotifier notifier = new ${n}();\nvar service = new AlertService(notifier);\nservice.Check(${t});`;$('#oresult').innerHTML=t>80?`<b>${esc(n)}</b> implementation sends: Temperature high (${t})`:`Temperature ${t} is normal. No notification.`};
+// Data structure simulator
+let ds=[];function dsrender(){let type=$('#dstype').value,v=ds.map(esc).join(' → ')||'empty';$('#dsstate').textContent=`${type}\n\n${v}`;let why={"List<Employee>":'Ordered dynamic list of employees.',"Dictionary<int,Employee>":'Key/value lookup, e.g. employee ID → employee.',"HashSet<string>":'Unique values; duplicates are ignored.',"Queue<string>":'FIFO: first item added is first processed.',"Stack<string>":'LIFO: last item added is first removed.'}[type];$('#dswhy').textContent=why}$('#dsadd').onclick=()=>{let v=$('#dsvalue').value.trim();if(v){if($('#dstype').value.includes('HashSet')){if(!ds.includes(v))ds.push(v)}else ds.push(v);dsrender()}};$('#dsremove').onclick=()=>{if(ds.length){if($('#dstype').value.includes('Queue'))ds.shift();else if($('#dstype').value.includes('Stack'))ds.pop();else ds.pop();dsrender()}};$('#dsreset').onclick=()=>{ds=[];dsrender()};$('#dstype').onchange=()=>{ds=[];dsrender()};dsrender();
+// LINQ
+const employees=[['Alberto','Software',30000],['Maria','Firmware',35000],['Jose','Software',28000],['Ana','HR',32000],['Carlo','Software',42000]];function linq(){let f=$('#filter').value.toLowerCase(),a=employees.filter(e=>e[0].toLowerCase().includes(f));let s=$('#sort').value;if(s==='salaryDesc')a.sort((x,y)=>y[2]-x[2]);if(s==='salaryAsc')a.sort((x,y)=>x[2]-y[2]);if(s==='name')a.sort((x,y)=>x[0].localeCompare(y[0]));$('#linqout').innerHTML='<table><tr><th>Name</th><th>Dept</th><th>Salary</th></tr>'+a.map(e=>`<tr><td>${esc(e[0])}</td><td>${esc(e[1])}</td><td>₱${e[2].toLocaleString()}</td></tr>`).join('')+'</table>'}$('#filter').oninput=linq;$('#sort').onchange=linq;linq();
+// MVVM demo
+let mv=[];function mvrender(){ $('#mvlist').innerHTML=mv.map(esc).map(x=>`<li>${x}</li>`).join('') }$('#mvadd').onclick=()=>{let n=$('#mvname').value.trim();if(!n)return;mv.push(n);$('#mvname').value='';if($('#mvnotify').checked){mvrender();$('#mvlog').textContent='CollectionChanged → UI refreshed';}else $('#mvlog').textContent='ViewModel changed, but no notification → UI did not refresh.'};$('#mvnotify').onchange=()=>{$('#mvlog').textContent=$('#mvnotify').checked?'Notifications ON':'Notifications OFF'};
+// SQL join
+function joinrun(){let j=$('#join').value,m=Number($('#minsalary').value)||0,rows=[];if(j==='INNER JOIN'){rows=employees.filter(e=>e[2]>=m&&e[1]!=='HR').map(e=>[e[0],e[1]])}else if(j.startsWith('Employees')){rows=employees.filter(e=>e[2]>=m).map(e=>[e[0],e[1]])}else{rows=[['Firmware','Maria'],['Software','Alberto'],['Software','Jose'],['HR',null]].filter(r=>r[1]||m===0)}$('#joincode').textContent=`SELECT e.Name, d.DepartmentName\nFROM Employees e\n${j==='INNER JOIN'?'INNER':j.startsWith('Employees')?'LEFT':'RIGHT'} JOIN Departments d\nON e.DepartmentId = d.Id${m?`\nWHERE e.Salary >= ${m}`:''}`;$('#joinout').innerHTML='<table><tr><th>Left</th><th>Right</th></tr>'+rows.map(r=>`<tr><td>${esc(r[0])}</td><td>${r[1]===null?'<span class="bad">NULL</span>':esc(r[1])}</td></tr>`).join('')+'</table>'}$('#joinrun').onclick=joinrun;joinrun();
+// REST
+$('#apirun').onclick=()=>{let a=$('#api').value,t=$('#token').checked;if(!t){$('#apiout').innerHTML='<span class="bad">401 Unauthorized</span>\n{ "error": "token required" }';return}let map={"GET /api/employees":[200,[{id:1,name:'Alberto'},{id:2,name:'Maria'}]],"GET /api/employees/99":[404,{error:'Not found'}],"POST /api/employees":[201,{id:3,name:'Jose'}],"PATCH /api/employees/1":[200,{id:1,name:'Alberto',salary:31000}],"DELETE /api/employees/1":[204,null]};let [c,b]=map[a];$('#apiout').textContent=`${a} → ${c}\n\n${b?JSON.stringify(b,null,2):'(no body)'}`};
+// serial
+const chunks=['TE','MP:2','8.5\n','TEMP:29.1\n'];let ci=0,sbuf='',raw=[];function sr(){ $('#rawchunks').textContent=raw.join(' | ')||'—';$('#serialbuffer').textContent=sbuf||'—'}$('#chunk').onclick=()=>{let c=chunks[ci++%chunks.length];raw.push(JSON.stringify(c).slice(1,-1));if($('#bufferon').checked){sbuf+=c;let p=sbuf.indexOf('\n');if(p>=0){let line=sbuf.slice(0,p);sbuf=sbuf.slice(p+1);let mm=/^TEMP:(-?\d+(\.\d+)?)$/.exec(line);$('#serialresult').textContent=mm?mm[1]+' °C':'invalid';$('#serialnote').textContent='Complete frame found after terminator.'}else $('#serialnote').textContent='Waiting for more bytes...'}else{let mm=/^TEMP:(-?\d+(\.\d+)?)$/.exec(c.trim());$('#serialresult').textContent=mm?mm[1]+' °C':'parse error';$('#serialnote').textContent='Buffer OFF: this chunk may be incomplete.'}sr()};$('#chunkreset').onclick=()=>{ci=0;sbuf='';raw=[];$('#serialresult').textContent='—';$('#serialnote').textContent='';sr()};sr();
+// AI
+$('#airun').onclick=()=>{let r=$('#rag').checked,b=$('#badjson').checked,v=$('#validate').checked;let html='<ol><li>Build prompt'+(r?' + retrieved maintenance logs':'')+'</li><li>Call LLM API via AIService/HttpClient</li><li>Response: <code>'+(b?'\{cause: fan fail':'{"cause":"fan failure","severity":"high"}')+'</code></li>';if(b&&!v)html+='<li class="bad">Invalid JSON reached the app. Risk: parse error / bad data.</li>';else if(b&&v)html+='<li class="ok">Validation caught invalid JSON → return controlled error/retry.</li>';else html+='<li class="ok">Validate schema → show structured result.</li>';html+='</ol>';$('#aiout').innerHTML=html};
+// Git
+let git={w:[],s:[],c:[],r:[],n:0};function gr(msg){$('#gw').innerHTML='<b>Working directory</b><br>'+git.w.map(x=>`<span class="pill">${x}</span>`).join('');$('#gs').innerHTML='<b>Staging</b><br>'+git.s.map(x=>`<span class="pill">${x}</span>`).join('');$('#gc').innerHTML='<b>Local repo</b><br>'+git.c.map(x=>`<span class="pill">${x}</span>`).join('');$('#gr').innerHTML='<b>Remote</b><br>'+git.r.map(x=>`<span class="pill">${x}</span>`).join('');$('#gitmsg').textContent=msg}$$('[data-g]').forEach(b=>b.onclick=()=>{let a=b.dataset.g;if(a==='reset'){git={w:[],s:[],c:[],r:[],n:0};gr('Reset.');return}if(a==='edit'){git.n++;git.w.push('file'+git.n+'.cs');gr('File changed in working directory.')}if(a==='add'){git.s.push(...git.w);git.w=[];gr('Staged.')}if(a==='commit'){if(!git.s.length)return gr('Nothing staged.');git.c.push('commit '+git.c.length);git.s=[];gr('Committed locally.')}if(a==='push'){if(!git.c.length)return gr('Nothing to push.');git.r.push(...git.c);git.c=[];gr('Pushed to remote.')}});gr('Click Edit to start.');
+// JD checklist
+const jd=[
+['C# + WPF','C# is the language; WPF is the Windows desktop UI framework. XAML describes the UI.','I understand the separation and I am practicing it through a small WPF-style MVVM project.'],
+['HTML + CSS + JavaScript','HTML structure, CSS presentation/layout, JavaScript behavior and API interaction.','My web background makes REST, JSON and async concepts familiar.'],
+['MVVM + OOP','View → ViewModel → Service → Repository. OOP gives encapsulation, inheritance, polymorphism and abstraction.','I separate UI concerns from business logic and data access.'],
+['C/C++ + STM32','Know GPIO, ADC, timers, UART, I2C, SPI, interrupts, DMA, and basic C/C++ syntax.','My stronger experience is software, but I understand the embedded communication flow and can learn the hardware-specific code.'],
+['Software ↔ hardware','Use a documented protocol: frame, terminator/length, checksum/CRC, timeout and retry where needed.','I would buffer serial data, validate it, parse it, then update the UI safely.'],
+['Figma','Use design as the visual specification and convert reusable styles/components to WPF resources.','I can translate spacing, typography, colors and component states into functional UI.'],
+['SQL / database','Know CRUD, joins, keys, indexes, transactions, parameterization. EF Core maps C# entities to database access.','I keep SQL/data access outside the View and normally behind a repository/service boundary.'],
+['AI / ML / LLM','Call the model from a service, validate structured output, handle errors/rate limits, protect secrets, use RAG when appropriate.','I would build a small controlled AI feature first and validate every response.'],
+['Automation / intelligent tools','Examples: log summarization, anomaly detection, structured report extraction, technical-document search.','I would start with a measurable proof of concept and keep a human review path.'],
+['Testing / debugging / performance','Reproduce → isolate → root cause → fix → retest. Use unit/integration tests and performance measurement.','I debug systematically instead of changing random code.'],
+['Collaboration','Agree on interfaces/protocols, use Git branches/PRs, document bugs with steps/expected/actual.','I communicate the contract early so hardware, firmware, QA and software can work in parallel.'],
+['Requirements → solution','Clarify goal, acceptance criteria, break into tasks, demo incrementally, collect feedback.','I prefer small testable steps and early clarification of unclear requirements.'],
+['Documentation / standards','README, protocol specs, comments for public APIs, consistent naming, code review.','I document interfaces and follow the project’s standards.'],
+['Research new technology','Use a small POC, compare fit/maintenance/risk, then explain trade-offs.','I prefer evidence from a small prototype before recommending a technology.']
+];$('#jdlist').innerHTML=jd.map((x,i)=>`<details ${i<3?'open':''}><summary>${esc(x[0])}</summary><p>${esc(x[1])}</p><div class="say"><b>Interview wording:</b> “${esc(x[2])}”</div></details>`).join('');
+// Exam
+const questions=[
+['What is C#?',['A UI framework','A programming language','A database'],1,'C# is a language used heavily on .NET.'],
+['What is .NET?',['A platform/runtime and libraries','Only a database','Only XAML'],0,'.NET is the platform/runtime ecosystem; WPF is a UI framework on .NET.'],
+['What is a class?',['A blueprint for objects','A database row only','A Git branch'],0,'A class defines data and behavior; an object is an instance.'],
+['What does a constructor do?',['Deletes an object','Initializes a new object','Queries SQL'],1,'Constructors run when an object is created.'],
+['Which collection is a dynamic ordered list?',['List<T>','Dictionary<TKey,TValue>','HashSet<T>'],0,'List<T> is the common dynamic ordered collection.'],
+['Which collection is key/value?',['Queue<T>','Dictionary<TKey,TValue>','Stack<T>'],1,'Dictionary maps a key to a value.'],
+['What does Where do in LINQ?',['Filter','Sort','Create a class'],0,'Where filters elements.'],
+['What does Select do in LINQ?',['Transform/project values','Delete SQL rows','Open a COM port'],0,'Select projects each element into another form.'],
+['Why use async/await in WPF?',['To avoid blocking UI during I/O','To change XAML color','To replace SQL'],0,'Async I/O keeps the UI responsive.'],
+['What is WPF?',['Windows desktop UI framework','Microcontroller firmware','SQL server'],0,'WPF is a .NET Windows desktop UI framework.'],
+['What is XAML?',['UI markup','Database protocol','Git command'],0,'XAML describes the WPF visual structure and properties.'],
+['What does MVVM separate?',['UI, presentation state/commands, and model/domain concerns','Only CSS and SQL','Only hardware'],0,'MVVM separates View from ViewModel and model/domain concerns.'],
+['Why INotifyPropertyChanged?',['Tell bindings a property changed','Connect GitHub','Create SQL indexes'],0,'WPF bindings can react to PropertyChanged notifications.'],
+['Why ObservableCollection?',['Collection change notifications','It encrypts data','It is a database'],0,'It notifies bound controls about collection changes.'],
+['Where should raw SQL/data access normally live?',['View','Repository/data layer','Button text'],1,'Keep data access separate from the View.'],
+['What does INNER JOIN return?',['Matching rows','All left rows always','Only deleted rows'],0,'INNER JOIN returns rows with matching join keys.'],
+['What is EF Core?',['An ORM/data-access framework','A UI control','A serial cable'],0,'EF Core provides object-relational mapping and database access.'],
+['What does GET normally mean?',['Read','Delete','Compile'],0,'GET retrieves a resource.'],
+['What is JSON?',['A common structured data format','A microcontroller','A compiler'],0,'JSON is commonly used in REST APIs.'],
+['What does 401 usually indicate?',['Unauthorized/not authenticated','Server success','Database index'],0,'401 indicates authentication is required/failed.'],
+['What is UART?',['Serial communication interface','A WPF control','An SQL join'],0,'UART is a serial communication interface with TX/RX.'],
+['What is ADC?',['Analog-to-digital conversion','API database connection','Automatic debug compiler'],0,'ADC converts analog input into digital values.'],
+['I2C typically uses what?',['SDA and SCL','TX and RX only','MOSI and MISO only'],0,'I2C uses SDA and SCL and addresses devices.'],
+['Why buffer serial data?',['Messages may arrive in chunks','To make SQL faster','To draw Figma'],0,'A serial event may contain only part of a logical message.'],
+['What is a checksum/CRC for?',['Detect transmission errors','Style a button','Create a class'],0,'Checksums/CRCs help detect corrupted frames.'],
+['What is RAG?',['Retrieve relevant context before generation','A Git reset','An SQL table'],0,'RAG combines retrieval with generation.'],
+['Where should an LLM API key go?',['Source code/Git','Secret configuration/storage','UI label'],1,'Secrets should not be committed to source control.'],
+['What is a unit test?',['Tests a small unit of behavior','Tests the whole company','A database table'],0,'Unit tests focus on a small piece of code.'],
+['Best first debugging step?',['Reproduce the issue','Delete the project','Change random code'],0,'Reproduce first, then isolate and investigate.'],
+['What does git commit do?',['Records staged changes in local history','Uploads directly to production','Deletes all files'],0,'Commit creates a local history snapshot from staged changes.']
+];let ei=0,es=0,answered=false;function renderExam(){if(ei>=questions.length){$('#exambox').innerHTML=`<div class="score">Final score: ${es} / ${questions.length}</div><p>${es/questions.length>=.8?'Good. Review weak topics once more.':'Balikan ang C# fundamentals at labs bago ulitin.'}</p><button class="b" id="restart">Restart</button>`;$('#restart').onclick=()=>{ei=0;es=0;renderExam()};$('#bar').style.width='100%';$('#examscore').textContent=`${es} / ${questions.length}`;return}let q=questions[ei];answered=false;$('#exambox').innerHTML=`<div class="mut">Question ${ei+1} / ${questions.length}</div><h3>${esc(q[0])}</h3>`+q[1].map((x,i)=>`<div class="choice" data-i="${i}">${esc(x)}</div>`).join('')+'<div id="examfeedback"></div>';$$('#exambox .choice').forEach(c=>c.onclick=()=>{if(answered)return;answered=true;let i=+c.dataset.i;if(i===q[2])es++;c.classList.add(i===q[2]?'correct':'wrong');$$('#exambox .choice')[q[2]].classList.add('correct');$('#examfeedback').innerHTML=`<div class="say">${i===q[2]?'<span class="ok">Correct.</span>':'<span class="bad">Not quite.</span>'} ${esc(q[3])}</div><button class="b" id="nextq">Next</button>`;$('#nextq').onclick=()=>{ei++;renderExam()}});$('#examscore').textContent=`${es} / ${questions.length}`;$('#bar').style.width=(ei/questions.length*100)+'%'}renderExam();
+</script>
+</body>
+</html>
