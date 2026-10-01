@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aeroworks Interview Lab</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#14213d;--mut:#5b6b82;--line:#d5dde8;--acc:#0e8f86;--accbg:#e2f4f2;--warn:#c2410c;--warnbg:#fdebdc;--bad:#b42318;--ok:#13795b;--code:#eef2f7;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1824;--card:#172336;--ink:#e6edf7;--mut:#9fb0c7;--line:#2a3b55;--acc:#3dd1c4;--accbg:#12353a;--warn:#fb9a5b;--warnbg:#3a2616;--bad:#ff8a80;--ok:#5fd6a6;--code:#0c1422}}
+:root[data-theme="dark"]{--bg:#0f1824;--card:#172336;--ink:#e6edf7;--mut:#9fb0c7;--line:#2a3b55;--acc:#3dd1c4;--accbg:#12353a;--warn:#fb9a5b;--warnbg:#3a2616;--bad:#ff8a80;--ok:#5fd6a6;--code:#0c1422}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:20px 16px 8px;max-width:900px;margin:0 auto}h1{font-size:22px;margin:0 0 4px}header p{margin:0;color:var(--mut)}
+nav{display:flex;gap:6px;overflow-x:auto;padding:10px 16px;max-width:900px;margin:0 auto;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:8px;font:inherit;cursor:pointer}
+nav button[aria-selected=true]{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+main{max-width:900px;margin:0 auto;padding:6px 16px 40px}section{display:none}section.on{display:block}
+h2{font-size:18px;margin:8px 0 4px}.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:10px 0}
+.say{background:var(--accbg);border-left:4px solid var(--acc);padding:10px 12px;border-radius:6px;margin:10px 0}
+.trap{background:var(--warnbg);border-left:4px solid var(--warn);padding:10px 12px;border-radius:6px;margin:10px 0}
+button.b,select,input[type=text],input[type=number]{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 11px}
+button.b{background:var(--acc);color:#fff;border-color:var(--acc);cursor:pointer;font-weight:600}button.b:disabled{opacity:.4;cursor:not-allowed}button.b.g{background:var(--card);color:var(--ink);border-color:var(--line)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+pre,.code{background:var(--code);border-radius:8px;padding:10px;font:12.5px/1.5 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;margin:8px 0;white-space:pre-wrap;word-break:break-word}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:620px){.grid{grid-template-columns:1fr}}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13.5px}th,td{border:1px solid var(--line);padding:5px 8px;text-align:left}th{background:var(--code)}
+.layer{display:block;width:100%;text-align:left;margin:6px 0;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer}.layer[aria-pressed=true]{border-color:var(--acc);background:var(--accbg)}
+.zone{min-height:90px;border:1px dashed var(--line);border-radius:8px;padding:8px}.zone b{font-size:13px}.f{display:inline-block;background:var(--accbg);border:1px solid var(--acc);border-radius:6px;padding:1px 7px;margin:2px;font-size:13px}
+.ok{color:var(--ok);font-weight:600}.bad{color:var(--bad);font-weight:600}.mut{color:var(--mut)}.q label{display:block;border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer}
+.q label.right{border-color:var(--ok)}.q label.wrong{border-color:var(--bad)}
+</style></head><body>
+<header><h1>Aeroworks Interview Lab</h1><p>I-click, i-type, at panoorin kung ano ang nangyayari. Mas mabilis tumatak kapag ikaw ang gumagalaw.</p></header>
+<nav role="tablist" id="nav"></nav>
+<main>
+
+<section id="big"><h2>1. Big picture</h2>
+<p class="mut">I-click ang bawat layer. Isipin mo ang app bilang restaurant.</p>
+<div id="layers"></div><div class="card" id="ldesc"></div>
+<div class="say"><b>Say this:</b> "User → WPF View → ViewModel → C# Service → Database / API / Hardware, and the result returns to the UI through data binding."</div></section>
+
+<section id="mvvm"><h2>2. MVVM lab</h2>
+<p class="mut">Ang View ay naka-bind sa ViewModel. I-type ang pangalan, i-click Add. Tapos i-off ang <code>INotifyPropertyChanged</code> at tingnan kung ano ang masisira.</p>
+<div class="grid"><div class="card"><b>View (XAML)</b>
+<div class="row"><input type="text" id="nm" placeholder="NewName (TextBox)" aria-label="New name"><button class="b" id="add">Add</button></div>
+<div>Employees: <b id="cnt">0</b></div><ul id="lst" style="margin:6px 0;padding-left:18px"></ul></div>
+<div class="card"><b>ViewModel (C#)</b><pre id="vmj"></pre><div id="log" class="mut" style="font-size:13px"></div></div></div>
+<label><input type="checkbox" id="notify" checked> INotifyPropertyChanged ON (SetProperty → OnPropertyChanged)</label>
+<div id="mnote" class="say" style="margin-top:10px"></div>
+<pre>public ICommand AddCommand =&gt; new RelayCommand(_ =&gt; Add(), _ =&gt; !string.IsNullOrWhiteSpace(NewName)); // CanExecute</pre>
+<div class="say"><b>Say this:</b> "The View binds to the ViewModel through INotifyPropertyChanged and ICommand, so UI and business logic stay decoupled and the ViewModel can be unit-tested without a window."</div></section>
+
+<section id="sql"><h2>3. SQL JOIN lab</h2>
+<p class="mut">Palitan ang JOIN type at tingnan kung aling rows ang lumalabas.</p>
+<div class="grid"><div class="card tw"><b>Employees</b><table><tr><th>Id</th><th>Name</th><th>Salary</th><th>DepartmentId</th></tr>
+<tr><td>1</td><td>Alberto</td><td>30000</td><td>1</td></tr><tr><td>2</td><td>Maria</td><td>35000</td><td>2</td></tr><tr><td>3</td><td>Jose</td><td>28000</td><td>2</td></tr><tr><td>4</td><td>Ana</td><td>32000</td><td>NULL</td></tr></table></div>
+<div class="card tw"><b>Departments</b><table><tr><th>Id</th><th>DepartmentName</th></tr><tr><td>1</td><td>Firmware</td></tr><tr><td>2</td><td>Software</td></tr><tr><td>3</td><td>HR</td></tr></table></div></div>
+<div class="row"><select id="jt" aria-label="Join type"><option value="i">INNER JOIN</option><option value="le">Employees LEFT JOIN Departments</option><option value="ld">Departments LEFT JOIN Employees</option></select>
+<label>Min salary <input type="number" id="ms" value="0" step="1000" style="width:100px"></label></div>
+<pre id="sq"></pre><div class="card tw" id="sr"></div>
+<div class="say"><b>Say this:</b> "INNER returns only matches. LEFT returns every row from the left table and NULLs where there is no match. I use parameterized queries to prevent SQL injection."</div></section>
+
+<section id="rest"><h2>4. REST + JSON lab</h2>
+<p class="mut">Pumili ng request, i-click Send, at basahin ang response.</p>
+<div class="row"><select id="rq" aria-label="Request"></select><label><input type="checkbox" id="tok" checked> Send auth token</label><button class="b" id="send">Send</button></div>
+<div class="card"><div id="rs" class="mut">Wala pang response.</div></div>
+<div class="say"><b>Say this:</b> "GET reads, POST creates, PUT replaces, PATCH updates part of it, DELETE removes. In C# I deserialize the JSON into a model and bind it to a DataGrid."</div></section>
+
+<section id="ser"><h2>4b. STM32 → C# serial lab</h2>
+<p class="mut">Ang UART ay puwedeng magpadala ng putol-putol na data. I-click ang "Next chunk" at tingnan kung bakit kailangan ng buffer at terminator.</p>
+<div class="row"><button class="b" id="nx">Next chunk</button><button class="b g" id="rst">Reset</button><label><input type="checkbox" id="buf" checked> Buffer until "\n"</label><button class="b g" id="tx">Send "READ_TEMP\n" to STM32</button></div>
+<div class="grid"><div class="card"><b>COM3 raw chunks</b><div class="code" id="raw">—</div><b>Buffer</b><div class="code" id="bf">—</div></div>
+<div class="card"><b>C# result</b><div id="res" style="font-size:26px;font-weight:700">—</div><div id="pl" class="mut"></div></div></div>
+<div class="trap"><b>Common bug:</b> ang <code>DataReceived</code> ay tumatakbo sa background thread. Gamitin ang <code>Dispatcher.Invoke</code> bago i-update ang UI-bound property, at <code>InvariantCulture</code> sa <code>double.TryParse</code>.</div></section>
+
+<section id="git"><h2>5. Git flow lab</h2>
+<p class="mut">Pindutin ang mga button nang sunod-sunod: edit → add → commit → push.</p>
+<div class="row"><button class="b" data-g="edit">Edit a file</button><button class="b" data-g="add">git add .</button><button class="b" data-g="commit">git commit</button><button class="b" data-g="push">git push</button><button class="b g" data-g="reset">Reset</button></div>
+<div class="grid"><div class="zone" id="z0"></div><div class="zone" id="z1"></div><div class="zone" id="z2"></div><div class="zone" id="z3"></div></div>
+<div id="gmsg" class="say" style="margin-top:10px"></div></section>
+
+<section id="quiz"><h2>6. Quiz</h2><div class="card q" id="qb"></div>
+<div class="mut">Hindi kasama dito ang buong coverage ng C#/OOP, EF Core, Figma, at AI/LLM. Nasa PDF reviewer ang mga iyon, kasama ang code.</div></section>
+</main>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const tabs=[["big","Big picture"],["mvvm","MVVM"],["sql","SQL"],["rest","REST"],["ser","STM32 serial"],["git","Git"],["quiz","Quiz"]];
+const nav=$("#nav");tabs.forEach(([id,t],i)=>{const b=document.createElement("button");b.textContent=t;b.setAttribute("role","tab");b.onclick=()=>show(id);b.dataset.id=id;nav.append(b)});
+function show(id){$$("section").forEach(s=>s.classList.toggle("on",s.id===id));$$("#nav button").forEach(b=>b.setAttribute("aria-selected",b.dataset.id===id))}show("big");
+const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+/* 1 big picture */
+const L=[["View: WPF + XAML","Restaurant: dining area at menu. Ito ang nakikita ng user. XAML = itsura; walang business logic dito."],
+["ViewModel: MVVM","Restaurant: waiter. Hawak ang data na ipinapakita (properties) at tumatanggap ng click (commands). Gumagamit ng INotifyPropertyChanged at ICommand."],
+["Service: C# business logic","Restaurant: kitchen. Dito ang rules at computation. Gumagamit ng OOP at interfaces para madaling palitan at i-test."],
+["Repository: EF Core / SQL","Restaurant: pantry. Ang tanging layer na nakikipag-usap sa database. Hindi dapat may SQL sa ViewModel."],
+["Outside world: SQL DB, REST API, LLM, STM32","Warehouse, supplier, at kitchen sensor. SQL = persistent data. REST/LLM = HTTP + JSON. STM32 = hardware sa pamamagitan ng UART/USB serial."]];
+L.forEach((l,i)=>{const b=document.createElement("button");b.className="layer";b.innerHTML="<b>"+l[0]+"</b>";b.onclick=()=>{$$(".layer").forEach(x=>x.setAttribute("aria-pressed",x===b));$("#ldesc").textContent=l[1]};$("#layers").append(b)});
+$("#ldesc").textContent="I-click ang isang layer sa itaas.";
+/* 2 mvvm */
+const vm={NewName:"",Employees:[]};let shown={cnt:0,en:false};
+function log(m){$("#log").textContent=m}
+function render(){$("#cnt").textContent=vm.Employees.length;$("#add").disabled=!vm.NewName.trim();$("#lst").innerHTML=vm.Employees.map(e=>"<li>"+esc(e)+"</li>").join("")}
+function vmj(){$("#vmj").textContent=JSON.stringify(vm,null,1)}
+function note(){$("#mnote").innerHTML=$("#notify").checked?"ON: tuwing may nagbago sa ViewModel, nag-fire ang PropertyChanged kaya nag-refresh ang UI (count, Add button).":"<b>OFF:</b> nagbabago ang ViewModel (tingnan ang JSON) pero walang notification, kaya hindi nag-uupdate ang count at ang Add button. Ito ang pinakakaraniwang bug sa MVVM."}
+$("#nm").oninput=e=>{vm.NewName=e.target.value;vmj();if($("#notify").checked){log("PropertyChanged('NewName') fired");render()}else log("(walang event na na-fire)")};
+$("#add").onclick=()=>{vm.Employees.push(vm.NewName.trim());vm.NewName="";$("#nm").value="";vmj();if($("#notify").checked){log("CollectionChanged + PropertyChanged('NewName')");render()}else log("(walang event na na-fire)")};
+$("#notify").onchange=()=>{note();if($("#notify").checked)render()};
+$("#add").disabled=true;note();vmj();
+/* 3 sql */
+const E=[[1,"Alberto",30000,1],[2,"Maria",35000,2],[3,"Jose",28000,2],[4,"Ana",32000,null]],D={1:"Firmware",2:"Software",3:"HR"};
+function sql(){const t=$("#jt").value,ms=+$("#ms").value||0;let rows=[],q;
+if(t=="i"){q="SELECT e.Name, d.DepartmentName\nFROM Employees e\nINNER JOIN Departments d ON e.DepartmentId = d.Id";E.filter(e=>e[3]&&e[2]>=ms).forEach(e=>rows.push([e[1],D[e[3]]]))}
+else if(t=="le"){q="SELECT e.Name, d.DepartmentName\nFROM Employees e\nLEFT JOIN Departments d ON e.DepartmentId = d.Id";E.filter(e=>e[2]>=ms).forEach(e=>rows.push([e[1],e[3]?D[e[3]]:null]))}
+else{q="SELECT d.DepartmentName, e.Name\nFROM Departments d\nLEFT JOIN Employees e ON e.DepartmentId = d.Id";Object.keys(D).forEach(k=>{const m=E.filter(e=>e[3]==k&&e[2]>=ms);if(m.length)m.forEach(e=>rows.push([D[k],e[1]]));else rows.push([D[k],null])})}
+if(ms>0)q+="\nWHERE e.Salary >= "+ms;
+$("#sq").textContent=q;const h=t=="ld"?["DepartmentName","Name"]:["Name","DepartmentName"];
+$("#sr").innerHTML="<table><tr>"+h.map(x=>"<th>"+x+"</th>").join("")+"</tr>"+rows.map(r=>"<tr>"+r.map(c=>"<td>"+(c===null?'<span class="bad">NULL</span>':esc(c))+"</td>").join("")+"</tr>").join("")+"</table>"+(rows.length?"":"<span class='mut'>0 rows</span>")}
+$("#jt").onchange=sql;$("#ms").oninput=sql;sql();
+/* 4 rest */
+const R=[["GET /api/employees",200,[{id:1,name:"Alberto"},{id:2,name:"Maria"}],"Kinuha ang buong listahan."],["GET /api/employees/1",200,{id:1,name:"Alberto"},"Kinuha ang isang resource."],["GET /api/employees/99",404,{error:"Not found"},"Walang ganitong resource."],
+["POST /api/employees",201,{id:3,name:"Jose"},"201 Created: may bagong record."],["PUT /api/employees/1",200,{id:1,name:"Alberto R."},"Pinalitan ang buong resource."],["PATCH /api/employees/1",200,{id:1,name:"Alberto",salary:31000},"Isang field lang ang binago."],["DELETE /api/employees/1",204,null,"204 No Content: nabura na, walang body."]];
+R.forEach((r,i)=>$("#rq").append(new Option(r[0],i)));
+$("#send").onclick=()=>{const r=R[$("#rq").value];let c=r[1],b=r[2],n=r[3];if(!$("#tok").checked){c=401;b={error:"Unauthorized"};n="Walang token kaya tinanggihan. 401 = hindi naka-login, 403 = bawal ang access."}
+const k=c<300?"ok":"bad";$("#rs").innerHTML="<div>"+esc(r[0])+" → <span class='"+k+"'>"+c+"</span></div><pre>"+(b?esc(JSON.stringify(b,null,1)):"(no body)")+"</pre><div>"+n+"</div>"}
+/* 4b serial */
+const CH=["TE","MP:2","8.5\n","TEMP:","29.1\n"];let ci=0,bf="",raw=[];
+function sr(){$("#raw").textContent=raw.join(" | ")||"—";$("#bf").textContent=$("#buf").checked?JSON.stringify(bf):"(buffer OFF)"}
+function parse(l){const m=/^TEMP:(-?\d+(\.\d+)?)$/.exec(l.trim());return m?parseFloat(m[1]):null}
+$("#nx").onclick=()=>{const c=CH[ci%CH.length];ci++;raw.push(JSON.stringify(c).slice(1,-1));let out="";
+if($("#buf").checked){bf+=c;let i;while((i=bf.indexOf("\n"))>=0){const l=bf.slice(0,i);bf=bf.slice(i+1);const v=parse(l);out=v!==null?"<span class='ok'>"+v+" °C</span>":"<span class='bad'>invalid</span>";$("#pl").textContent='Parsed "'+l+'" after the terminator.'}if(!out){$("#pl").textContent="Hindi pa kumpleto ang message, hinihintay ang \\n."}}
+else{const v=parse(c);out=v!==null?"<span class='ok'>"+v+" °C</span>":"<span class='bad'>Parse error</span>";$("#pl").textContent='Sinubukang i-parse ang '+JSON.stringify(c)+' nang putol, kaya sira.'}
+if(out)$("#res").innerHTML=out;sr()};
+$("#rst").onclick=()=>{ci=0;bf="";raw=[];$("#res").textContent="—";$("#pl").textContent="";sr()};$("#buf").onchange=()=>$("#rst").click();
+$("#tx").onclick=()=>{$("#pl").textContent='TX → "READ_TEMP\\n". Sa firmware, ang RX interrupt ang magbubuo ng line at sasagot ng "TEMP:xx.x".'};sr();
+/* 5 git */
+let g;function greset(){g={w:[],s:[],c:[],r:[],n:0};gr("Mag-edit ng file para magsimula.")}
+function gr(m){["Working directory","Staging area","Local repo","Remote (GitHub)"].forEach((t,i)=>{$("#z"+i).innerHTML="<b>"+t+"</b><br>"+[g.w,g.s,g.c,g.r][i].map(x=>"<span class='f'>"+x+"</span>").join("")});$("#gmsg").textContent=m}
+$$("[data-g]").forEach(b=>b.onclick=()=>{const a=b.dataset.g;if(a=="reset")return greset();
+if(a=="edit"){g.n++;g.w.push("file"+g.n+".cs");gr("May bagong changes. Hindi pa ito nasa history.")}
+else if(a=="add"){if(!g.w.length)return gr("Walang i-stage. Mag-edit muna.");g.s.push(...g.w);g.w=[];gr("Naka-stage na. Ito ang ilalagay sa susunod na commit.")}
+else if(a=="commit"){if(!g.s.length)return gr("Walang naka-stage. Mag git add muna.");g.c.push("commit: "+g.s.join(", "));g.s=[];gr("Naka-save na sa local history. Ikaw lang ang may kopya pa.")}
+else{if(!g.c.length)return gr("Walang i-push. Mag-commit muna.");g.r.push(...g.c);g.c=[];gr("Nasa remote na. Puwede nang mag-open ng Pull Request ang team para sa review.")}});greset();
+/* 6 quiz */
+const Q=[["Ano ang pinagkaiba ng C# at .NET?",["Pareho lang sila","C# ang language, .NET ang platform/runtime","C# ang UI framework"],1,"C# = language. .NET = platform. WPF = UI framework sa .NET."],
+["Bakit hindi nag-uupdate ang UI kahit nagbago ang property sa ViewModel?",["Walang PropertyChanged notification","Maling font","Walang Git"],0,"Kailangan ng INotifyPropertyChanged (o SetProperty) para malaman ng binding."],
+["Alin ang tamang lugar ng SQL query?",["MainWindow.xaml.cs","ViewModel","Repository / data layer"],2,"Ihiwalay ang database access sa UI at ViewModel."],
+["Bakit gumagamit ng ObservableCollection?",["Mas mabilis ito sa List","Nagno-notify ito sa UI kapag may add/remove","Para sa SQL only"],1,"Auto-refresh ng DataGrid/ListBox sa pagbabago ng items."],
+["Nag-freeze ang window habang tumatawag ng API. Solusyon?",["async/await","Mas malaking monitor","Gumamit ng goto"],0,"Huwag i-block ang UI thread; gumamit ng async/await."],
+["Aling JOIN ang magbabalik ng employee na walang department?",["INNER JOIN","LEFT JOIN (Employees sa kaliwa)","DELETE"],1,"LEFT JOIN: lahat ng nasa kaliwa, may NULL kung walang match."],
+["UART, I2C, o SPI: dalawang wire, maraming device, may address?",["UART","I2C","SPI"],1,"I2C = SDA + SCL, address ang pagkilala sa device."],
+["Bakit kailangan ng buffer sa serial reading?",["Para gumanda ang UI","Dahil puwedeng dumating nang putol-putol ang message","Para mabilis ang baud rate"],1,"Buuin hanggang may terminator (hal. \\n), saka i-parse."],
+["Error: cross-thread operation sa serial DataReceived. Fix?",["Dispatcher.Invoke","Alisin ang COM port","Gumamit ng SPI"],0,"I-marshal ang UI update pabalik sa UI thread."],
+["Ano ang RAG?",["Retrieve relevant data muna, ibigay sa LLM bilang context","Isang SQL command","Isang Git branch"],0,"Retrieval-Augmented Generation: grounded ang sagot sa nakuhang data."],
+["Paano mo ide-debug ang bug?",["Reproduce, isolate, root cause, fix, retest","Burahin ang code","I-restart ang PC lang"],0,"Idagdag ang regression test para hindi bumalik."]];
+let qi=0,sc=0,done=false;
+function qr(){const b=$("#qb");if(qi>=Q.length){b.innerHTML="<h2>Score: "+sc+" / "+Q.length+"</h2><p>"+(sc>=9?"Handa ka na. I-review lang ang Q&A sa PDF.":"Balikan ang mga lab sa itaas, tapos subukan ulit.")+"</p><button class='b' id='again'>Ulitin</button>";$("#again").onclick=()=>{qi=0;sc=0;qr()};return}
+const q=Q[qi];done=false;b.innerHTML="<div class='mut'>Tanong "+(qi+1)+" / "+Q.length+"</div><p><b>"+esc(q[0])+"</b></p>"+q[1].map((o,i)=>"<label data-i='"+i+"'><input type='radio' name='o' hidden>"+esc(o)+"</label>").join("")+"<div id='ex'></div>";
+$$("#qb label").forEach(l=>l.onclick=()=>{if(done)return;done=true;const i=+l.dataset.i;if(i==q[2])sc++;l.classList.add(i==q[2]?"right":"wrong");$$("#qb label")[q[2]].classList.add("right");
+$("#ex").innerHTML="<div class='say'>"+(i==q[2]?"<span class='ok'>Tama.</span> ":"<span class='bad'>Mali.</span> ")+esc(q[3])+"</div><button class='b' id='nq'>"+(qi==Q.length-1?"See score":"Next")+"</button>";$("#nq").onclick=()=>{qi++;qr()}})}
+qr();
+</script></body></html>
